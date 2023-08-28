@@ -1,0 +1,50 @@
+{% if page.tag  == "yellow" %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Snow('#snow' ,{
+            number:45,
+            r: 4,
+            v: 1.4,
+            color: 'rgb(255,223,23)'
+        });
+    });
+</script>
+{% endif %}
+
+{% if page.tag  == "pink" %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Snow('#snow' ,{
+            number:45,
+            r: 4,
+            v: 1.4,
+            color: 'rgb(246,173,205)'
+        });
+    });
+</script>
+{% endif %}
+
+{% if page.tag  == "blue" %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Snow('#snow' ,{
+            number:45,
+            r: 4,
+            v: 1.4,
+            color: 'rgb(150,193,255)'
+        });
+    });
+</script>
+{% endif %}
+
+{% if page.tag  == "white" %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Snow('#sitewrapper' ,{
+            number:45,
+            r: 4,
+            v: 1.4, color: 'rgb(255,255,255)',
+        });
+    });
+</script>
+{% endif %}

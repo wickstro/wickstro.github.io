@@ -1,0 +1,69 @@
+---
+layout: default
+comments: true
+---
+<ul class="sidnavi">
+    {% if page.type  == "body" and page.title == "Bodybutters" %}
+        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+     {% endif %}
+    {% if page.type  == "body"  and page.title != "Bodybutters" %}
+    <li class="listsidnavi"><a class="text-capitalize" href="/body">{{ page.type }}</a></li>
+    <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+    {% endif %}
+    {% if page.type  == "face" and page.title == "Facial Care" %}
+            <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+         {% endif %}
+    {% if page.type  == "face" and page.title != "Facial Care" %}
+    <li class="listsidnavi"><a class="text-capitalize" href="/face">{{ page.type }}</a></li>
+    <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+    {% endif %}
+    {% if page.type  == "Hands & Feet" and page.title == "Hands & Feet" %}
+        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+    {% endif %}
+    {% if page.type  == "Hands & Feet" and page.title != "Hands & Feet" %}
+    <li class="listsidnavi"><a class="text-capitalize" href="/hands-and-feet">{{ page.type }}</a></li>
+     <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+     {% endif %}
+     {% if page.type  == "hair" and page.title == "Head & Hair" %}
+         <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+     {% endif %}
+     {% if page.type  == "hair" and page.title != "Head & Hair" %}
+     <li class="listsidnavi"><a class="text-capitalize" href="/hair">{{ page.type }}</a></li>
+     <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+      {% endif %}
+      {% if page.type  == "hygiene" and page.title == "Hygiene and Wash" %}
+        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+       {% if page.type  == "hygiene" and page.title != "Hygiene and Wash" %}
+       <li class="listsidnavi"><a class="text-capitalize" href="/hygiene">{{ page.type }}</a></li>
+       <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+       {% if page.type  == "masks and mists" and page.title == "Masks and Mists" %}
+       <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+       {% if page.type  == "masks and mists" and page.title != "Masks and Mists" %}
+       <li class="listsidnavi"><a class="text-capitalize" href="/masks-and-mists">{{ page.type }}</a></li>
+       <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+
+</ul>
+<main>
+    {{ content }}
+     {% if page.title == "Masks and Mists" or page.title == "Hygiene and Wash" or page.title == "Head & Hair" or page.title == "Hands & Feet" or page.title == "Facial Care" or page.title == "Bodybutters"  %}
+        <div class="text-center"><a href="/#page-buy"><button>Köp produkterna</button></a></div>
+     {% else %}
+        <div class="text-center"><a href="/#page-buy"><button>Köp produkten</button></a></div>
+     {% endif %}
+    <aside class="upbox">
+    <a class="up" href="#page-top"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Upp</a>
+    </aside>
+    </article>
+</main>
+<aside class="fb">
+    <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+    </div>
+</aside>

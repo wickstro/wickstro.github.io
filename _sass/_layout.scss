@@ -1,0 +1,1557 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+//* DOC STYLES *//
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+  body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+  }
+
+
+  body#page-error {
+    background: url('../img/bgs/kaktus.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+  }
+
+
+  body#page-1 {
+    background: url('../img/bgs/woman.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+    -ms-overflow-style: scrollbar;
+    transform: translate3d(0, 0, 0);
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px) {
+      background-attachment: initial;
+    }
+    @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_woman.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#body {
+    background: url('../img/bgs/swimming.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+    @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_swimming.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#face {
+    background: url('../img/bgs/darkwoman.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+    @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_darkwoman.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#hands {
+    background: url('../img/bgs/hands-feet-dark.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_hands-feet-dark.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  body#hair {
+    background: url('../img/bgs/hair.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_hair.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+
+  }
+  body#hygiene {
+    background: url('../img/bgs/young_overlay.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+    h1.slogan {
+      align-self: flex-end;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_young_overlay.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#masks {
+    background: url('../img/bgs/fruittable.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-content-zooming: none;
+    h1.slogan {
+      text-shadow: 1px 2px 2px #000000;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_fruittable.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  body#page-10 {
+    background: url('../img/bgs/maneter.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    h1.slogan {
+      text-shadow: 1px 2px 2px #000000;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_maneter.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-22 {
+    background: url('../img/bgs/kaktus.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_kaktus.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-23 {
+    background: url('../img/bgs/citrus_overlay.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    article {
+      background-color: rgba(36, 39, 41, 0.67);
+    }
+    article h2.faktarutarubrik {
+      color: #FFCB05;
+    }
+    hr.primary {
+      border-top: 1px solid #FFCB05;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_citrus.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-24 {
+    background: url('../img/bgs/choko.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    article {
+      background-color: rgba(25, 13, 13, 0.7);
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_choko.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-25 {
+    background: url('../img/bgs/greenleaf.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_greenleaf.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-26 {
+    background: url('../img/bgs/rose.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    .sloganbox {
+      h1.slogan {
+        font-size: 2.6rem;
+        align-self: flex-start;
+        transform: rotate(-5deg);
+      }
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_rose.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-30 {
+    background: url('../img/bgs/hiding.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_hiding.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-31 {
+    background: url('../img/bgs/water.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_water.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-32 {
+    background: url('../img/bgs/aromatherapy.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    h1.slogan {
+      text-shadow: 1px 2px 2px #5a5d5f;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_aromatherapy.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-44 {
+    background: url('../img/bgs/nightsky.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_nightsky.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-45 {
+    background: url('../img/bgs/bermuda.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_bermuda.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-47 {
+    background: url('../img/bgs/dog.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    h1.slogan {
+      color: $blue-color;
+      align-self: flex-start;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_dog.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-48 {
+    background: url('../img/bgs/lavendeloverlay.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_lavendeloverlay.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-49 {
+    background: url('../img/bgs/orangevanilla.jpg') no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    h1.slogan {
+      text-shadow: 0px 1px 1px #5a5d5f;
+    }
+    article h2.faktarutarubrik {
+      color: $light-orange;
+    }
+    hr.primary {
+      border-top: 1px solid $light-orange;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_orangevanilla.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+
+  }
+
+  body#page-55 {
+    background: url('../img/bgs/hair.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_hair.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-56 {
+    background: url('../img/bgs/aloe.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    h1.slogan {
+      text-shadow: 0 1px 2px #5a5d5f;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_aloe.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-66 {
+    background: url('../img/bgs/lighthouse.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    h1.slogan {
+      align-self: flex-start;
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_lighthouse.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  body#page-67 {
+    background: url('../img/bgs/trappa2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_trappa2.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  body#page-70 {
+    background: url('../img/bgs/choko.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_choko.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-71 {
+    background: url('../img/bgs/orangeleaf.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_orangeleaf.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-80 {
+    background: url('../img/bgs/dracena.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_dracena.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#page-81 {
+    background: url('../img/bgs/blommasidan.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    .sloganbox {
+      h1.slogan {
+        text-shadow: 1px 2px 1px #5a5d5f;
+        font-size: 2.6rem;
+        align-self: flex-start;
+        transform: rotate(-5deg);
+      }
+    }
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_blommasidan.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  body#page-93 {
+    background: url('../img/bgs/vatten.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_vatten.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  body#braattveta {
+    background: url('../img/bgs/soffa.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     @media screen and (max-width: $mobile) {
+      background: url('../img/bgs/vertical_soffa.jpg') no-repeat center top fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -ms-content-zooming: none;
+      -ms-overflow-style: scrollbar;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+#sitewrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media (min-width: $laptop) {
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1253px;
+  }
+
+  header.site-header {
+    z-index: 4;
+    width: 11%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    @media (max-width: $tablet) {
+      width: 15%;
+    }
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      position: relative;
+      height: auto;
+    }
+  }
+
+  .page-content {
+    width: 70%;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 3;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+//* FONT STYLES *//
+
+p {
+  font-weight: 300;
+  color: $text-color;
+  margin-bottom:1.1rem;
+  letter-spacing: 1px;
+    &.large-font-size {
+      font-size: $large-font-size;
+    }
+}
+p.small, span.small {
+  font-size: $small-font-size;
+  line-height: 1.1rem;
+  letter-spacing: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-size: $base-font-size;
+  letter-spacing: 1px;
+}
+
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: $blue-color;
+}
+
+a:active {
+  text-decoration: none;
+  color: $blue-color;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: $blue-color;
+}
+
+li.active a {
+  text-decoration: none;
+  color: $blue-color;
+}
+
+li {
+  color: $light-color;
+  font-size: $base-font-size;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+h1 {
+  font-family: "bebas-neue",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  color: $link-color;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: "bebas-neue",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height:3.1rem;
+  letter-spacing: 4px;
+  color: $link-color;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+
+h3 {
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: $text-color;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $text-color;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+
+sup {
+  font-size: .6em;
+}
+
+hr.primary {
+  border-top: 1px solid $blue-color;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr.primary, hr.light, hr.dark {
+  margin: 0 auto 2rem auto;
+  border-bottom: none;
+}
+
+
+
+//* GENERAL STYLES *//
+
+img.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.spacing-unit {
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+}
+
+.padding {
+  padding: $base-padding;
+  @media (max-width: $mobile) {
+    padding: $spacing-unit;
+  }
+}
+
+.dubbelpadding {
+  padding-top: $dubbel-padding;
+  padding-bottom: $dubbel-padding;
+  padding-left: $base-padding;
+  padding-right: $base-padding;
+  @media (max-width: $mobile) {
+    padding-top: $base-padding;
+    padding-bottom: $base-padding;
+    padding-left: $spacing-unit;
+    padding-right:$spacing-unit;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.white {
+  background-color: #ffffff;
+}
+.black {
+  background-color: #000000;
+}
+.grey {
+  background-color: rgba(36, 39, 41, 0.87);
+
+}
+.orange {
+  color:  $pink;
+}
+
+
+button, .button {
+  border: 2px solid $blue;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 21px;
+  padding: 0.5em 2em;
+  box-shadow: none;
+  background-color: transparent;
+  text-transform: none;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  color: $light-color;
+
+  &:hover, &:focus {
+  background-color: $blue;
+    color: $light-color;
+    outline: none;
+
+  }
+  a {
+    color: $text-color;
+
+  }
+}
+
+
+//* HEADER STYLES *//
+
+
+.site-header .wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  .logo img.logoimg {
+    max-width: 80px;
+    padding-top: $base-padding;
+    padding-bottom: $base-padding;
+    @media (max-width: $mobile) {
+      padding-bottom: 0;
+      padding-top: 0.8rem;
+      max-width: 40px;
+    }
+  }
+  .logonamn img.logonamnimg {
+    max-width: 40px;
+    padding-bottom: $base-padding;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+    @media (max-height: 500px) {
+      display: none;
+    }
+
+  }
+  a.namn {
+    display: none;
+    @media (max-width: $mobile) {
+      display: block;
+    }
+  }
+
+  //* NAV STYLES *//
+
+  nav ul.navi {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-top: $spacing-unit;
+    @media(max-width: $mobile) {
+      padding-top: $base-padding;
+    }
+    li.nav-item a {
+      font-size: $small-font-size;
+    }
+  }
+
+}
+
+//* BREADCRUMB STYLES *//
+
+  .sidnavi >li+li:before {
+    content: "/";
+    display: inline-block;
+    color: $blue-color;
+  }
+
+  li.active  a {
+    color: $blue-color;
+  }
+
+
+  ul.sidnavi {
+   margin-left: 20px;
+    li.listsidnavi {
+    padding-right: 0;
+    }
+  }
+
+
+  //* SLOGAN BOX STYLES *//
+
+.sloganbox {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  h1.slogan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $light-color;
+    font-size: 4rem;
+    font-family: flood-std, sans-serif;
+    @media (max-width: $tablet) {
+      font-size: 3rem;
+      line-height: 3.2rem;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width:$tablet) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  @media (max-width:$mobile) {
+    max-width: 100%;
+  }
+}
+
+ .sloganbox#sloganbox10 {
+    min-height:50vh;
+    h1.slogan {
+      transform: rotate(-10deg);
+      @media (max-width: $mobile) {
+        transform: rotate(-5deg);
+      }
+    }
+   @media (max-width:$tablet) {
+     min-height:35vh;
+   }
+   @media (max-width: $mobile) {
+     min-height:20vh;
+   }
+  }
+
+.sloganbox#sloganboxindex {
+  min-height: 60vh;
+  h1.slogan {
+    transform: rotate(-10deg);
+    @media (max-width: $mobile) {
+      transform: rotate(-5deg);
+      font-size: 2rem;
+    }
+  }
+  @media (max-width: $tablet) {
+    min-height: 20vh;
+  }
+}
+  .sloganbox#sloganboxlow {
+    min-height:30vh;
+    h1.slogan {
+      transform: rotate(-10deg);
+      @media (max-width: $mobile) {
+        transform: rotate(-5deg);
+        font-size: 2rem;
+      }
+    }
+    @media (max-width:$tablet) {
+      min-height:20vh;
+    }
+}
+
+//* FLIP CARD STYLES *//
+
+.produktkort {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem 0;
+  @media (max-width: $mobile) {
+    justify-content: space-around;
+    padding: 1.5rem 0;
+  }
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 210px;
+  height: 210px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  padding-bottom:20px;
+  overflow: hidden;
+  @media(max-width:$tablet) {
+    width: 195px;
+    height: 195px;
+    padding-bottom:1rem;
+  }
+  @media(max-width:$mobile) {
+    width: 185px;
+    height: 185px;
+    padding-bottom:14px;
+  }
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition:0.8s;
+  -moz-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  img {
+    max-height: 200px;
+    @media(max-width:$tablet) {
+      max-height: 195px;
+    }
+    @media(max-width:$mobile) {
+      max-height: 185px;
+    }
+  }
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  position: relative;
+  border-radius: 6px;
+  h1 {
+    color: $link-color;
+    padding-top: 20px;
+    line-height: 4rem;
+    letter-spacing: 2px;
+  }
+  p {
+    color: $link-color;
+  }
+}
+.flip-card-front.ten, .card.ten {
+  background-color: $grey;
+}
+.flip-card-front.twenty2 {
+  background-color: $dark-color;
+}
+.flip-card-front.twenty3 {
+background-color: $yellow;
+}
+.flip-card-front.twenty4 {
+background-color: $brown;
+}
+.flip-card-front.twenty5 {
+background-color: $green;
+}
+.flip-card-front.twenty6 {
+background-color: $pink;
+}
+.flip-card-front.thirty {
+background-color: $green;
+}
+.flip-card-front.thirty1 {
+background-color: $lightblue;
+}
+.flip-card-front.thirty2 {
+background-color: $purple;
+}
+.flip-card-front.forty4 {
+background-color: $purple;
+}
+.flip-card-front.forty5, .card.forty5 {
+background-color: $cherry;
+}
+.flip-card-front.forty7 {
+background-color: $dark-color;
+}
+.flip-card-front.forty8, .card.forty8 {
+background-color: $purple;
+}
+.flip-card-front.forty9 {
+background-color: $light-orange;
+}
+.flip-card-front.fifty5, .card.fifty5 {
+background-color: $yellow;
+}
+.flip-card-front.fifty6 {
+background-color: $pink;
+}
+.flip-card-front.sixty6 {
+background-color: $red;
+}
+.flip-card-front.sixty7 {
+background-color: $cherry;
+}
+.flip-card-front.seventy {
+background-color: $dark-color;
+}
+.flip-card-front.seventy1 {
+background-color: $orange;
+}
+.flip-card-front.eighty {
+background-color: $orange;
+}
+.flip-card-front.eighty1, .card.eighty1 {
+background-color: $blue;
+}
+.flip-card-front.ninty3 {
+background-color: $cherry;
+}
+
+
+/* Style the back side */
+.flip-card-back {
+  color: white;
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+}
+
+.produktkort-singel {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding-bottom: $base-padding;
+
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      img {
+        max-height: 300px;
+        @media(max-width:$tablet) {
+          max-height: 295px;
+        }
+        @media(max-width:$mobile) {
+          max-height: 285px;
+        }
+      }
+    }
+  }
+}
+
+
+img.cert {
+  max-width: 70%;
+  display:block;
+  margin: 0 auto;
+  @media(max-width:$mobile) {
+    max-width: 100%;
+  }
+}
+
+// INDEX PAGE PRODUKTGRUPPER //
+
+.produktgrupp {
+  @media(max-width:$mobile) {
+    padding: 0 1rem;
+  }
+  .card {
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: $base-padding;
+    padding: 0.5rem;
+    opacity:0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+  //* ARTICLE STYLES *//
+
+  article {
+    z-index: 5;
+    header h1 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h2.om {
+      padding-top: $base-padding;
+    }
+    img.img-fluid.produktprofilbild {
+      max-width: 300px;
+    }
+    h2.pris{
+      font-family: "bebas-neue",sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: $link-color;
+    }
+    h2.faktarutarubrik, h1.faktarutarubrik {
+      font-family: flood-std, sans-serif;
+      letter-spacing: 0;
+      margin-bottom: 1.5rem;
+      padding-top: $base-padding;
+    }
+    ul.ingredienslista {
+      list-style: none;
+      padding-bottom: $base-padding;
+      li {
+        color: $light-color;
+      }
+    }
+    p.ingredienser {
+      color:  $light-color;
+    }
+    ul.plus {
+      list-style-image: url('../img/plus.png');
+      padding-bottom: 1rem;
+      padding-left: $spacing-unit;
+      li {
+        color: $text-color;
+      }
+    }
+    ul.minus {
+      list-style-image: url('../img/minus.png');
+      padding-left: $spacing-unit;
+      padding-bottom: 1rem;
+      li {
+        color: $text-color;
+      }
+    }
+
+  }
+
+
+
+  // BRA ATT VETA -SIDAN //
+  #braattveta {
+    nav {
+      ul.nobullets {
+        padding-left: $base-padding;
+        padding-bottom: $base-padding;
+        list-style: none;
+        li {
+          color: $light-color;
+        }
+      }
+
+    }
+    ul.nobullets {
+      list-style: none;
+    }
+    p b {
+      color: $pink;
+    }
+    ul.plus {
+      list-style-image: url('../img/plus.png');
+      padding-bottom: 1rem;
+      padding-left: $spacing-unit;
+      li {
+        color: $text-color;
+      }
+    }
+    ul.minus {
+      list-style-image: url('../img/minus.png');
+      padding-left: $spacing-unit;
+      padding-bottom: 1rem;
+      li {
+        color: $text-color;
+      }
+    }
+  }
+
+
+  ul.sidnavi {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    margin-bottom: 0px;
+
+    & > li {
+      display: inline;
+      padding-right: 30px;
+
+      & > a {
+        font-size: $small-font-size;
+
+        &:active {
+          color: $blue-color;
+        }
+        &:hover {
+          color: $blue-color;
+        }
+        &:focus {
+          color: $blue-color;
+          text-decortion: none;
+        }
+      }
+    }
+  }
+
+
+  .listsida a {
+    font-size: 21px;
+    &.active a {
+      color: $dark-color;
+    }
+    &:hover {
+      color: $blue-color;
+    }
+    &:focus {
+      color: $blue-color;
+      text-decortion: none;
+    }
+  }
+
+
+  img.img-fluid.profilbild {
+    max-width: 250px;
+  }
+
+  h2.faktarutarubrik, h1.faktarutarubrik {
+    font-family: flood-std, sans-serif;
+    letter-spacing: 0;
+    margin-bottom: 1.5rem;
+    padding-top: $base-padding;
+    transform: rotate -3 deg;
+    color: $blue-color;
+  }
+
+
+  //* FOOTER STYLES *//
+  footer {
+    background-color: rgba(0,0, 0, 0.8);
+    margin-top: 4rem;
+    .wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      p {
+        margin-bottom: 0;
+      }
+      img.icon {
+        display: inline-block;
+        max-width: 60px;
+      }
+      @media(max-width:$mobile) {
+        footer h1 {
+          font-size: 22px;
+        }
+      }
+    }
+
+  }
+  //* JUMPTARGET STYLES *//
+
+  .jumptarget:before {
+    content: "";
+    display: block;
+    height: 80px; /* fixed header height*/
+    margin: -80px 0 0; /* negative fixed header height */
+  }
+
+  .upbox a.up  {
+    display: flex;
+    justify-content:flex-end;
+    padding: $spacing-unit;
+  }
+
+  aside.fb {
+    background-color: $light-transparent;
+    padding-left: $base-padding;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  //* MEDIA QUERIES *//
+
+  @include media-query($laptop) {
+    .faktaruta {
+      margin-bottom: 16px;
+    }
+
+  }
+
+  @include media-query($tablet) {
+    p, a, li {
+      font-size: $small-font-size;
+    }
+
+    h1, .hero h1, .buy-box h1, h2.pris, h2 {
+      font-size: 2rem;
+      line-height: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+  }
+
+  @include media-query($mobile) {
+
+    .padding {
+      padding-top: $spacing-unit;
+      padding-bottom: $spacing-unit;
+    }
+
+    .dubbelpadding {
+      padding-top: $base-padding;
+      padding-bottom: $base-padding;
+    }
+
+    .fb-like {
+      max-width: 98%;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    aside.fb {
+      padding-left: 1rem;
+    }
+
+  }
+
+
+
+
+
