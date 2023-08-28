@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to DrHardmans trial page!"
 date:   2023-08-28 14:03:31 +0300
 categories: jekyll update
 ---
