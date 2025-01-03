@@ -72,15 +72,24 @@ html {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
   }
-
-
-  body#page-error {
-    background: url('../img/bgs/kaktus.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
+  body::before {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        display: block;
+        inset: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
-    -ms-content-zooming: none;
+  }
+  
+
+
+  body#page-error::before {
+    background-image: url('../img/bgs/kaktus.jpg');
   }
 
 
@@ -172,7 +181,7 @@ html {
     background-size: cover;
     -ms-content-zooming: none;
     h1.slogan {
-      text-shadow: 1px 2px 2px #000000;
+      text-shadow: 1px 2px 2px #5a5d5f;
     }
      @media screen and (max-width: $mobile) {
       background: url('../img/bgs/hair-bw.jpg') no-repeat center top fixed;
@@ -272,8 +281,12 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+   
+    h1.slogan {
+      text-shadow: 1px 2px 2px #5a5d5f;
+    }
     article {
-      background-color: rgba(36, 39, 41, 0.67);
+      background-color: rgba(36, 39, 41, 0.7);
     }
     article h2.faktarutarubrik {
       color: #FFCB05;
