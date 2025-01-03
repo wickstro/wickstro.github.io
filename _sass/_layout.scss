@@ -165,14 +165,17 @@ html {
   }
 
   body#hair {
-    background: url('../img/bgs/hair.jpg') no-repeat center top fixed;
+    background: url('../img/bgs/hair-bw.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     -ms-content-zooming: none;
+    h1.slogan {
+      text-shadow: 1px 2px 2px #000000;
+    }
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_hair.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/hair-bw.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -227,7 +230,7 @@ html {
   }
 
   body#page-10 {
-    background: url('../img/bgs/maneter.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/bathroom.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -236,7 +239,7 @@ html {
       text-shadow: 1px 2px 2px #000000;
     }
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_maneter.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/bathroom.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -247,13 +250,13 @@ html {
     }
   }
   body#page-22 {
-    background: url('../img/bgs/kaktus.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/feather.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_kaktus.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/feather.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -264,7 +267,7 @@ html {
     }
   }
   body#page-23 {
-    background: url('../img/bgs/citrus_overlay.jpg') no-repeat center top fixed;
+    background: url('../img/bgs/ai-lemon-crop.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -279,7 +282,7 @@ html {
       border-top: 1px solid #FFCB05;
     }
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_citrus.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/ai-lemons.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -405,13 +408,13 @@ html {
     }
   }
   body#page-44 {
-    background: url('../img/bgs/nightsky.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/iceland.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_nightsky.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/iceland.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -581,13 +584,13 @@ html {
   }
 
   body#page-70 {
-    background: url('../img/bgs/choko.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/chocolate.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_choko.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/chocolate.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -598,13 +601,19 @@ html {
     }
   }
   body#page-71 {
-    background: url('../img/bgs/orangeleaf.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/girl.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    article h2.faktarutarubrik {
+      color: #FFCB05;
+    }
+    hr.primary {
+      border-top: 1px solid #FFCB05;
+    }
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_orangeleaf.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/girl.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -615,13 +624,13 @@ html {
     }
   }
   body#page-80 {
-    background: url('../img/bgs/dracena.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/dewdrops.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_dracena.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/dewdrops.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -658,13 +667,13 @@ html {
   }
 
   body#page-93 {
-    background: url('../img/bgs/vatten.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/brook.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_vatten.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/brook.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -823,7 +832,7 @@ h2 {
 
 h3 {
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.4rem;
   line-height: 1.2;
   color: $text-color;
   margin-bottom: 1rem;
@@ -858,8 +867,14 @@ hr.primary, hr.light, hr.dark {
 //* GENERAL STYLES *//
 
 img.img-fluid {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+}
+img.img-fluid.small {
+  max-width: 240px;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .spacing-unit {
@@ -992,10 +1007,12 @@ button, .button {
     content: "/";
     display: inline-block;
     color: $blue-color;
+    font-weight: 600;
   }
 
   li.active  a {
     color: $blue-color;
+    font-weight: 600;
   }
 
 
@@ -1003,6 +1020,7 @@ button, .button {
    margin-left: 20px;
     li.listsidnavi {
     padding-right: 0;
+    font-weight: 600;
     }
   }
 
@@ -1088,6 +1106,7 @@ button, .button {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  grid-gap: 1rem;
   padding: 3rem 0;
   @media (max-width: $mobile) {
     justify-content: space-around;
@@ -1101,17 +1120,14 @@ button, .button {
   width: 210px;
   height: 210px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  padding-bottom:20px;
   overflow: hidden;
   @media(max-width:$tablet) {
     width: 195px;
     height: 195px;
-    padding-bottom:1rem;
   }
   @media(max-width:$mobile) {
     width: 185px;
     height: 185px;
-    padding-bottom:14px;
   }
 }
 
@@ -1202,7 +1218,7 @@ background-color: $lightblue;
 background-color: $purple;
 }
 .flip-card-front.forty4 {
-background-color: $purple;
+background-color: $grey;
 }
 .flip-card-front.forty5, .card.forty5 {
 background-color: $cherry;
