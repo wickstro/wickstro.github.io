@@ -2,40 +2,60 @@
 layout: default_fi
 comments: true
 ---
+<ul class="sidnavi">
+    {% if page.type  == "body" and page.title == "Bodybutters" %}
+        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+     {% endif %}
+    {% if page.type  == "body"  and page.title != "Bodybutters" %}
+    <li class="listsidnavi"><a class="text-capitalize" href="/body">{{ page.type }}</a></li>
+    <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+    {% endif %}
+    {% if page.type  == "face" and page.title == "Facial Care" %}
+            <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+         {% endif %}
+    {% if page.type  == "face" and page.title != "Facial Care" %}
+    <li class="listsidnavi"><a class="text-capitalize" href="/face">{{ page.type }}</a></li>
+    <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+    {% endif %}
+    {% if page.type  == "Hands & Feet" and page.title == "Hands & Feet" %}
+        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+    {% endif %}
+    {% if page.type  == "Hands & Feet" and page.title != "Hands & Feet" %}
+    <li class="listsidnavi"><a class="text-capitalize" href="/hands-and-feet">{{ page.type }}</a></li>
+     <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+     {% endif %}
+     {% if page.type  == "hair" and page.title == "Head & Hair" %}
+         <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+     {% endif %}
+     {% if page.type  == "hair" and page.title != "Head & Hair" %}
+     <li class="listsidnavi"><a class="text-capitalize" href="/hair">{{ page.type }}</a></li>
+     <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+      {% endif %}
+      {% if page.type  == "hygiene" and page.title == "Hygiene and Wash" %}
+        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+       {% if page.type  == "hygiene" and page.title != "Hygiene and Wash" %}
+       <li class="listsidnavi"><a class="text-capitalize" href="/hygiene">{{ page.type }}</a></li>
+       <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+       {% if page.type  == "masks and mists" and page.title == "Masks and Mists" %}
+       <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
+       {% if page.type  == "masks and mists" and page.title != "Masks and Mists" %}
+       <li class="listsidnavi"><a class="text-capitalize" href="/masks-and-mists">{{ page.type }}</a></li>
+       <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+       {% endif %}
 
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 offset-md-1">
-        <ul class="sidnavi">
-
-          {% if page.type  == "tuotteet" %}
-          <li class="listsidnavi"><a class="text-capitalize" href="/fi/#tuotteet">{{ page.type }}</a></li>
-          <li class="active"><a href="#page-top">{{ page.title }}</a></li>
-
-          {% endif %}
-          {% if page.type  == "ingredienser" %}
-          <li class="listsidnavi"><a class="text-capitalize" href="/ingredienser/">{{ page.type }}</a></li>
-          <li class="active"><a href="#page-top">{{ page.title }}</a></li>
-          {% endif %}
-
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{ content }}
-
-<section class="padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <h4>Kysymyksiä </h4><p>Soita 0407642085<br>Kirjoita <a type="email" href="mailto:lotta.hardman@gmail.com?subject=Fråga om DrHardmans produkter">lotta.hardman@gmail.com</a></p>
-        <!--<hr class="primary" />
-        <h4>Kommentera och diskutera produkten här:</h4>-->
-
-      </div>
-    </div>
-  </div>
-</section>
+</ul>
+<main>
+    {{ content }}
+     {% if page.title == "Masks and Mists" or page.title == "Hygiene and Wash" or page.title == "Head & Hair" or page.title == "Hands & Feet" or page.title == "Facial Care" or page.title == "Bodybutters"  %}
+        <div class="text-center"><a href="/fi/#page-buy"><button>Osta tuotteet</button></a></div>
+     {% else %}
+        <div class="text-center"><a href="/fi/#page-buy"><button>Osta tuote</button></a></div>
+     {% endif %}
+    <aside class="upbox">
+    <a class="up" href="#page-top"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Ylös</a>
+    </aside>
+    </article>
+</main>

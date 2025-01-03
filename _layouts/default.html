@@ -2,33 +2,6 @@
 <html lang=sv-FI>
   {% include head.html %}
   <body id="{{ page.id }}">
-  <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82286633-1"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-
-      gtag('config', 'UA-82286633-1');
-  </script>
-  <script>
-      window.fbAsyncInit = function() {
-          FB.init({
-              appId      : '172168183195524',
-              xfbml      : true,
-              version    : 'v2.8'
-          });
-          FB.AppEvents.logPageView();
-      };
-
-      (function(d, s, id){
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/sv_SE/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-  </script>
   {% include snowsettings.html %}<!-- snow -->
   <div id="sitewrapper">
     <a class="jumptarget" name="page-top" id="page-top"></a>

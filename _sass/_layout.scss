@@ -71,25 +71,19 @@ html {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    h1.slogan {
+      text-shadow: 1px 1px 1px #5a5d5f;
+    }
   }
-  body::before {
-        content: "";
-        position: fixed;
-        z-index: -1;
-        display: block;
-        inset: 0;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        -webkit-background-size: cover;
+
+
+  body#page-error {
+    background: url('../img/bgs/kaktus.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-  }
-  
-
-
-  body#page-error::before {
-    background-image: url('../img/bgs/kaktus.jpg');
+    background-size: cover;
+    -ms-content-zooming: none;
   }
 
 
@@ -180,9 +174,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
     -ms-content-zooming: none;
-    h1.slogan {
-      text-shadow: 1px 2px 2px #5a5d5f;
-    }
+    
      @media screen and (max-width: $mobile) {
       background: url('../img/bgs/hair-bw.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
@@ -1512,13 +1504,13 @@ img.cert {
     }
 
   }
-  //* JUMPTARGET STYLES *//
 
+  //* JUMPTARGET STYLES *//
   .jumptarget:before {
     content: "";
     display: block;
-    height: 80px; /* fixed header height*/
-    margin: -80px 0 0; /* negative fixed header height */
+    /*height: 80px;  fixed header height*/
+    /*margin: -80px 0 0; negative fixed header height */
   }
 
   .upbox a.up  {
@@ -1526,12 +1518,9 @@ img.cert {
     justify-content:flex-end;
     padding: $spacing-unit;
   }
-
-  aside.fb {
-    background-color: $light-transparent;
-    padding-left: $base-padding;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .upbox i {
+    padding-right: 5px;
+    padding-top: 2px;
   }
 
   //* MEDIA QUERIES *//
