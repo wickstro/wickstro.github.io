@@ -72,7 +72,7 @@ html {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
     h1.slogan {
-      text-shadow: 1px 1px 1px #5a5d5f;
+      text-shadow: 0px 1px 3px rgba(39, 39, 39, 0.65);
     }
   }
 
@@ -96,11 +96,7 @@ html {
     -ms-content-zooming: none;
     -ms-overflow-style: scrollbar;
     transform: translate3d(0, 0, 0);
-    @media only screen
-    and (min-device-width : 768px)
-    and (max-device-width : 1024px) {
-      background-attachment: initial;
-    }
+
     @media screen and (max-width: $mobile) {
       background: url('../img/bgs/vertical_woman.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
@@ -131,14 +127,17 @@ html {
     }
   }
   body#face {
-    background: url('../img/bgs/darkwoman.jpg') no-repeat center top fixed;
+    background: url('../img/bgs/darkgirl.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     -ms-content-zooming: none;
+    h1.slogan {
+      align-self: flex-start;
+    }
     @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_darkwoman.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/vertical_darkgirl.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -168,7 +167,7 @@ html {
   }
 
   body#hair {
-    background: url('../img/bgs/hair-bw.jpg') no-repeat center top fixed;
+    background: url('../img/bgs/hair.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -176,7 +175,7 @@ html {
     -ms-content-zooming: none;
     
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/hair-bw.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/vertical_hair.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -188,7 +187,7 @@ html {
 
   }
   body#hygiene {
-    background: url('../img/bgs/young_overlay.jpg') no-repeat center center fixed;
+    background: url('../img/bgs/freshandclean.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -198,7 +197,7 @@ html {
       align-self: flex-end;
     }
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/vertical_young_overlay.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/vertical_freshandclean.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -215,9 +214,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
     -ms-content-zooming: none;
-    h1.slogan {
-      text-shadow: 1px 2px 2px #000000;
-    }
+  
      @media screen and (max-width: $mobile) {
       background: url('../img/bgs/vertical_fruittable.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
@@ -236,9 +233,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    h1.slogan {
-      text-shadow: 1px 2px 2px #000000;
-    }
+  
      @media screen and (max-width: $mobile) {
       background: url('../img/bgs/bathroom.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
@@ -273,10 +268,6 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-   
-    h1.slogan {
-      text-shadow: 1px 2px 2px #5a5d5f;
-    }
     article {
       background-color: rgba(36, 39, 41, 0.7);
     }
@@ -398,9 +389,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    h1.slogan {
-      text-shadow: 1px 2px 2px #5a5d5f;
-    }
+   
      @media screen and (max-width: $mobile) {
       background: url('../img/bgs/vertical_aromatherapy.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
@@ -490,9 +479,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    h1.slogan {
-      text-shadow: 0px 1px 1px #5a5d5f;
-    }
+  
     article h2.faktarutarubrik {
       color: $light-orange;
     }
@@ -535,9 +522,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    h1.slogan {
-      text-shadow: 0 1px 2px #5a5d5f;
-    }
+   
      @media screen and (max-width: $mobile) {
       background: url('../img/bgs/vertical_aloe.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
@@ -605,20 +590,22 @@ html {
       transform: translate3d(0, 0, 0);
     }
   }
-  body#page-71 {
-    background: url('../img/bgs/girl.jpg') no-repeat center center fixed;
+ 
+  body#page-72 {
+    background: url('../img/bgs/poppies.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
     article h2.faktarutarubrik {
-      color: #FFCB05;
+      color: rgba(209, 31, 92, 1);
     }
     hr.primary {
-      border-top: 1px solid #FFCB05;
+      border-top: 1px solid  rgba(209, 31, 92, 1);
     }
      @media screen and (max-width: $mobile) {
-      background: url('../img/bgs/girl.jpg') no-repeat center top fixed;
+      background: url('../img/bgs/poppies.jpg') no-repeat center top fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -653,7 +640,6 @@ html {
     background-size: cover;
     .sloganbox {
       h1.slogan {
-        text-shadow: 1px 2px 1px #5a5d5f;
         font-size: 2.6rem;
         align-self: flex-start;
         transform: rotate(-5deg);
@@ -1131,8 +1117,8 @@ button, .button {
     height: 195px;
   }
   @media(max-width:$mobile) {
-    width: 185px;
-    height: 185px;
+    width: 180px;
+    height: 180px;
   }
 }
 
@@ -1197,15 +1183,27 @@ button, .button {
 }
 .flip-card-front.ten, .card.ten {
   background-color: $grey;
+  &:hover {
+    background-color: rgba(39, 39, 39, 0.8);
+  }
 }
 .flip-card-front.twenty2 {
-  background-color: $dark-color;
+  background-color: $grey;
+  &:hover {
+    background-color: rgba(39, 39, 39, 0.8);
+  }
 }
 .flip-card-front.twenty3 {
 background-color: $yellow;
+&:hover {
+  background-color: rgba(255, 203, 5, 1);
+  }
 }
 .flip-card-front.twenty4 {
 background-color: $brown;
+&:hover {
+  background-color:rgba(140, 113, 93, 0.85);
+  }
 }
 .flip-card-front.twenty5 {
 background-color: $green;
@@ -1221,24 +1219,39 @@ background-color: $lightblue;
 }
 .flip-card-front.thirty2 {
 background-color: $purple;
+&:hover {
+  background-color: rgba(124, 119, 173, 0.91);
+  }
 }
 .flip-card-front.forty4 {
 background-color: $grey;
+&:hover {
+  background-color: rgba(39, 39, 39, 0.8);
+}
 }
 .flip-card-front.forty5, .card.forty5 {
 background-color: $cherry;
+&:hover {
+  background-color: rgba(209, 31, 92, 0.75);
+}
 }
 .flip-card-front.forty7 {
 background-color: $dark-color;
 }
 .flip-card-front.forty8, .card.forty8 {
 background-color: $purple;
+&:hover {
+  background-color: rgba(124, 119, 173, 0.91);
+}
 }
 .flip-card-front.forty9 {
 background-color: $light-orange;
 }
 .flip-card-front.fifty5, .card.fifty5 {
 background-color: $yellow;
+&:hover {
+  background-color: rgba(255, 203, 5, 1);
+}
 }
 .flip-card-front.fifty6 {
 background-color: $pink;
@@ -1248,6 +1261,9 @@ background-color: $red;
 }
 .flip-card-front.sixty7 {
 background-color: $cherry;
+&:hover {
+  background-color: rgba(209, 31, 92, 0.75);
+}
 }
 .flip-card-front.seventy {
 background-color: $dark-color;
@@ -1263,6 +1279,9 @@ background-color: $blue;
 }
 .flip-card-front.ninty3 {
 background-color: $cherry;
+&:hover {
+  background-color: rgba(209, 31, 92, 0.75);
+}
 }
 
 
@@ -1320,10 +1339,6 @@ img.cert {
     border-radius: 5px;
     margin-bottom: $base-padding;
     padding: 0.5rem;
-    opacity:0.8;
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 
