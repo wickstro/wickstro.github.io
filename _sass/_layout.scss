@@ -90,7 +90,7 @@ html {
   }
 
   body#page-error::before {
-    background-image: url('../img/bgs/kaktus.jpg');
+    background-image: url('../img/bgs/citrus_overlay.jpg');
   }
 
   body#page-1::before {
@@ -120,8 +120,9 @@ html {
       background-position: center top;
      
       @media screen and (max-width: $mobile) {
-        background: url('../img/bgs/vertical_darkgirl.jpg');
-        background-position: center top;
+        background-image: url('../img/bgs/vertical_darkgirl.jpg');
+        background-position: center center;
+       
       }
     }
   }
@@ -145,8 +146,11 @@ html {
 
   }
   body#hygiene {
-    h1.slogan {
-      align-self: flex-end;
+    .sloganbox {
+      h1.slogan {
+        font-size: 2.6rem;
+        transform: rotate(-5deg);
+      }
     }
     &::before{
       background-image: url('../img/bgs/freshandclean.jpg');
@@ -167,7 +171,10 @@ html {
   }
 
   body#page-10::before {
-    background-image: url('../img/bgs/bathroom.jpg');
+    background-image: url('../img/bgs/trappa2.jpg');
+    @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_trappa2.jpg');
+    }
   }
 
   body#page-22::before {
@@ -175,9 +182,6 @@ html {
   }
 
   body#page-23 {
-    article {
-      background-color: rgba(36, 39, 41, 0.7);
-    }
     article h2.faktarutarubrik {
       color: #FFCB05;
     }
@@ -189,7 +193,8 @@ html {
       background-position: center top;
      
        @media screen and (max-width: $mobile) {
-        background: url('../img/bgs/ai-lemons.jpg');
+        background-image: url('../img/bgs/ai-lemons.jpg');
+        
       }
     }
   }
@@ -208,10 +213,10 @@ html {
   }
 
   body#page-25::before {
-    background-image: url('../img/bgs/greenleaf.jpg');
+    background-image: url('../img/bgs/mango.jpg');
    
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_greenleaf.jpg');
+      background-image: url('../img/bgs/mango.jpg');
     }
   }
 
@@ -278,7 +283,6 @@ html {
 
   body#page-47 {
     h1.slogan {
-      color: $blue-color;
       align-self: flex-start;
     }
     &::before {
@@ -361,7 +365,24 @@ html {
       background-position: center top;
     }
   }
- 
+
+  body#page-71 {
+    article h2.faktarutarubrik {
+      color: $light-orange;
+    }
+    hr.primary {
+      border-top: 1px solid $light-orange;
+    }
+    &::before {
+      background-image: url('../img/bgs/girl.jpg');
+      background-position: center top;
+     
+       @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/vertical_girl.jpg');
+      }
+    }
+  }
+  
   body#page-72::before {
     background-image: url('../img/bgs/poppies.jpg');
    
@@ -369,6 +390,7 @@ html {
       background-position: center top;
     }
   }
+  
   body#page-80::before {
     background-image: url('../img/bgs/dewdrops.jpg');
     
@@ -378,31 +400,25 @@ html {
   }
 
   body#page-81 {
-    .sloganbox {
-      h1.slogan {
-        font-size: 2.6rem;
-        align-self: flex-start;
-        transform: rotate(-5deg);
-      }
-    }
     &::before {
-      background-image: url('../img/bgs/blommasidan.jpg');
+      background-image: url('../img/bgs/brook.jpg');
    
    
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_blommasidan.jpg');
+      background-image: url('../img/bgs/brook.jpg');
       background-position: center top;
       }
     }  
   }
 
   body#page-93::before {
-    background-image: url('../img/bgs/brook.jpg');
-    
+    background-image: url('../img/bgs/arid.jpg');
+    background-position: center top;
      @media screen and (max-width: $mobile) {
-      background-position: center top;
+      
     }
   }
+
   body#braattveta::before {
     background-image: url('../img/bgs/soffa.jpg');
    
@@ -787,9 +803,12 @@ button, .button {
   min-height: 60vh;
   h1.slogan {
     transform: rotate(-10deg);
+    line-height: 1.2;
+     font-size: 5rem;
     @media (max-width: $mobile) {
       transform: rotate(-5deg);
-      font-size: 2rem;
+      font-size: 3.3rem;
+      line-height: 1.2;
     }
   }
   @media (max-width: $tablet) {
