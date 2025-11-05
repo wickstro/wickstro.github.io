@@ -1096,11 +1096,12 @@ img.cert {
     img.img-fluid.produktprofilbild {
       max-width: 300px;
     }
-    h2.pris{
-      font-family: "bebas-neue",sans-serif;
+    h2.pris, h1.pris {
+      display: none;
+      /*font-family: "bebas-neue",sans-serif;
       font-style: normal;
       font-weight: 400;
-      color: $link-color;
+      color: $link-color;*/
     }
     h2.faktarutarubrik, h1.faktarutarubrik {
       font-family: flood-std, sans-serif;
