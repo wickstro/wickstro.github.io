@@ -7,7 +7,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.3.2"
+gem "jekyll", "~> 4.4"
 # Ruby 3.4+ removed these from default gems; Jekyll 4.3.2 still needs them.
 gem "csv"
 gem "base64"
