@@ -7,7 +7,7 @@
  * UMD/module wrapper or ES5 class polyfills.
  *
  * Usage: new Snow('#selector', { number, r, v, color, shape })
- * shape is 'circle' (default), 'star', or 'raindrop'.
+ * shape is 'circle' (default), 'star', 'raindrop', or 'flower'.
  */
 (function () {
     'use strict';
@@ -67,6 +67,27 @@
         ctx.closePath();
     }
 
+    // Traces a simple 5-petal flower (a center circle + petal circles
+    // around it) centered at (x, y), as one path so the overlapping
+    // circles fill as a single flat shape instead of stacking alpha.
+    function traceFlowerPath(ctx, x, y, r) {
+        var petals = 5;
+        var petalRadius = r * 0.6;
+        var centerRadius = r * 0.5;
+        var distance = r * 0.85;
+        ctx.beginPath();
+        for (var i = 0; i < petals; i += 1) {
+            var angle = (i / petals) * 2 * Math.PI;
+            var px = x + Math.cos(angle) * distance;
+            var py = y + Math.sin(angle) * distance;
+            ctx.moveTo(px + petalRadius, py);
+            ctx.arc(px, py, petalRadius, 0, 2 * Math.PI);
+        }
+        ctx.moveTo(x + centerRadius, y);
+        ctx.arc(x, y, centerRadius, 0, 2 * Math.PI);
+        ctx.closePath();
+    }
+
     class SnowParticle {
         constructor(options) {
             this.ctx = options.ctx;
@@ -90,6 +111,8 @@
                 traceStarPath(this.ctx, x, y, this.r);
             } else if (this.shape === 'raindrop') {
                 traceRaindropPath(this.ctx, x, y, this.r);
+            } else if (this.shape === 'flower') {
+                traceFlowerPath(this.ctx, x, y, this.r);
             } else {
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, this.r, 0, 2 * Math.PI, true);
@@ -117,7 +140,7 @@
          * @param {number} [options.r] base particle radius
          * @param {number} [options.v] fall speed
          * @param {string} [options.color] CSS rgb(...) color
-         * @param {string} [options.shape] 'circle' | 'star' | 'raindrop'
+         * @param {string} [options.shape] 'circle' | 'star' | 'raindrop' | 'flower'
          */
         constructor(selector, options) {
             this.element = document.querySelector(selector);
