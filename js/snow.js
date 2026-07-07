@@ -107,11 +107,17 @@
             var x = Math.floor(this.x);
             var y = Math.floor(this.y);
             this.ctx.fillStyle = this.color;
+            // Star/raindrop/flower cover more area than a plain snow
+            // circle, so they read as noticeably more solid at the same
+            // alpha - fade them a little extra to keep them delicate.
             if (this.shape === 'star') {
+                this.ctx.globalAlpha = 0.6;
                 traceStarPath(this.ctx, x, y, this.r);
             } else if (this.shape === 'raindrop') {
+                this.ctx.globalAlpha = 0.6;
                 traceRaindropPath(this.ctx, x, y, this.r);
             } else if (this.shape === 'flower') {
+                this.ctx.globalAlpha = 0.6;
                 traceFlowerPath(this.ctx, x, y, this.r);
             } else {
                 this.ctx.beginPath();
@@ -119,6 +125,7 @@
                 this.ctx.closePath();
             }
             this.ctx.fill();
+            this.ctx.globalAlpha = 1;
         }
 
         move() {
