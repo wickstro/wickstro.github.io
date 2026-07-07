@@ -160,14 +160,11 @@
         createClass(Snow, [{
             key: 'init',
             value: function init() {
-                var element = this.element;
-
-                var width = element.clientWidth;
-                var height = element.clientHeight;
-                this.width = width;
-                this.height = height;
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
                 this.createCanvas();
                 this.createParticle();
+                this.bindResize();
             }
         }, {
             key: 'createCanvas',
@@ -179,7 +176,9 @@
                 var canvas = document.createElement('canvas');
                 canvas.width = width;
                 canvas.height = height;
-                canvas.style.cssText = 'position:absolute;top:0;left:0;background:rgba(0,0,0,0);pointer-events:none;z-index:1;';
+                // Fixed + viewport-sized so the snow always covers exactly
+                // the visible screen, regardless of how tall the page content is.
+                canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0);pointer-events:none;z-index:1;';
                 element.appendChild(canvas);
                 this.canvas = canvas;
                 this.ctx = canvas.getContext('2d');
@@ -189,7 +188,8 @@
             value: function createParticle() {
                 var _option3 = this.option,
                     r = _option3.r,
-                    v = _option3.v;
+                    v = _option3.v,
+                    color = _option3.color;
                 var ctx = this.ctx,
                     width = this.width,
                     height = this.height,
@@ -198,7 +198,7 @@
 
                 for (var i = 0; i < number; i += 1) {
                     var particle = new SnowParticle({
-                        color: 'rgb(255,255,255)',
+                        color: color || 'rgb(255,255,255)',
                         content: ctx,
                         y: Math.floor(Math.random() * height),
                         x: Math.floor(Math.random() * width),
@@ -211,8 +211,9 @@
                     partiles.push(particle);
                     particle.draw();
                 }
+                var self = this;
                 function animate() {
-                    ctx.clearRect(0, 0, width, height);
+                    ctx.clearRect(0, 0, self.width, self.height);
                     partiles.forEach(function (item) {
                         item.move();
                         item.draw();
@@ -220,6 +221,41 @@
                     requestAnimationFrame(animate);
                 }
                 animate();
+            }
+        }, {
+            key: 'bindResize',
+            value: function bindResize() {
+                var self = this;
+                var resizeTimer = null;
+                window.addEventListener('resize', function () {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function () {
+                        self.resize();
+                    }, 150);
+                });
+            }
+        }, {
+            key: 'resize',
+            value: function resize() {
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                var oldWidth = this.width;
+                var oldHeight = this.height;
+                this.width = width;
+                this.height = height;
+                this.canvas.width = width;
+                this.canvas.height = height;
+                // Rescale existing particles proportionally so the snow
+                // keeps covering the whole screen immediately, instead of
+                // waiting for each particle to wrap around on its own.
+                var xRatio = oldWidth ? width / oldWidth : 1;
+                var yRatio = oldHeight ? height / oldHeight : 1;
+                this.partiles.forEach(function (item) {
+                    item.option.width = width;
+                    item.option.height = height;
+                    item.x *= xRatio;
+                    item.y *= yRatio;
+                });
             }
         }]);
         return Snow;
