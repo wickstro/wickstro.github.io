@@ -1,9 +1,0 @@
-{
-  "[html]": {
-    "editor.formatOnSave": false,
-    "editor.codeActionsOnSave": {
-      "source.fixAll": "never"
-    }
-  },
-  "html.format.enable": false
-}
