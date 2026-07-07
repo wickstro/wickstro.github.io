@@ -2,20 +2,17 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-// "variables" must load first since every other partial uses its
-// variables/mixins. "responsive" loads last so its overrides win the
-// cascade at each breakpoint.
-@import
-        "variables",
-        "reset",
-        "base",
-        "hero",
-        "typography",
-        "general",
-        "navigation",
-        "footer",
-        "product-cards",
-        "content",
-        "responsive"
-;
+// Load partials from `sass_dir` (defaults to `_sass`). Each partial
+// declares its own `@use "variables" as *;` for shared variables/
+// mixins. "responsive" loads last so its overrides win the cascade
+// at each breakpoint.
+@use "reset";
+@use "base";
+@use "hero";
+@use "typography";
+@use "general";
+@use "navigation";
+@use "footer";
+@use "product-cards";
+@use "content";
+@use "responsive";
