@@ -1,0 +1,96 @@
+// General utility classes: image sizing, spacing, buttons
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+//* GENERAL STYLES *//
+
+img.img-fluid {
+  width: 100%;
+  height: auto;
+}
+img.img-fluid.small {
+  max-width: 240px;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.spacing-unit {
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+}
+
+.padding {
+  padding: $base-padding;
+  @media (max-width: $mobile) {
+    padding: $spacing-unit;
+  }
+}
+
+.dubbelpadding {
+  padding-top: $dubbel-padding;
+  padding-bottom: $dubbel-padding;
+  padding-left: $base-padding;
+  padding-right: $base-padding;
+  @media (max-width: $mobile) {
+    padding-top: $base-padding;
+    padding-bottom: $base-padding;
+    padding-left: $spacing-unit;
+    padding-right:$spacing-unit;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.white {
+  background-color: #ffffff;
+}
+.black {
+  background-color: #000000;
+}
+.grey {
+  background-color: rgba(36, 39, 41, 0.87);
+
+}
+.orange {
+  color:  $pink;
+}
+
+
+button, .button {
+  border: 2px solid $blue;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 21px;
+  padding: 0.5em 2em;
+  box-shadow: none;
+  background-color: transparent;
+  text-transform: none;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  color: $light-color;
+
+  &:hover, &:focus {
+  background-color: $blue;
+    color: $light-color;
+    outline: none;
+
+  }
+  a {
+    color: $text-color;
+
+  }
+}
+
+img.cert {
+  max-width: 70%;
+  display:block;
+  margin: 0 auto;
+  @media(max-width:$mobile) {
+    max-width: 100%;
+  }
+}

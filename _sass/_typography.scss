@@ -1,0 +1,110 @@
+// Typography: paragraphs, links, headings, rules
+
+//* FONT STYLES *//
+
+p {
+  font-weight: 300;
+  color: $text-color;
+  margin-bottom:1.1rem;
+  letter-spacing: 1px;
+    &.large-font-size {
+      font-size: $large-font-size;
+    }
+}
+p.small, span.small {
+  font-size: $small-font-size;
+  line-height: 1.1rem;
+  letter-spacing: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-size: $base-font-size;
+  letter-spacing: 1px;
+}
+
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: $blue-color;
+}
+
+a:active {
+  text-decoration: none;
+  color: $blue-color;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: $blue-color;
+}
+
+li.active a {
+  text-decoration: none;
+  color: $blue-color;
+}
+
+li {
+  color: $light-color;
+  font-size: $base-font-size;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+h1 {
+  font-family: "bebas-neue",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  color: $link-color;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: "bebas-neue",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height:3.1rem;
+  letter-spacing: 4px;
+  color: $link-color;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+
+h3 {
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: $text-color;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: $text-color;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+
+sup {
+  font-size: .6em;
+}
+
+hr.primary {
+  border-top: 1px solid $blue-color;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr.primary, hr.light, hr.dark {
+  margin: 0 auto 2rem auto;
+  border-bottom: none;
+}

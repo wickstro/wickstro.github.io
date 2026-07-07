@@ -1,0 +1,417 @@
+// Hero: per-page background images + slogan box text overlays
+
+  body#page-error::before {
+    background-image: url('../img/bgs/citrus_overlay.jpg');
+  }
+
+  body#page-1::before {
+    background-image: url('../img/bgs/woman.jpg');
+
+    @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_woman.jpg');
+      background-position: center top;
+    }
+  }
+
+  body#body::before {
+    background-image: url('../img/bgs/swimming.jpg');
+    background-position: center top;
+   
+    @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_swimming.jpg');
+    }
+  }
+
+  body#face {
+    h1.slogan {
+      align-self: flex-start;
+    }
+    &::before {
+      background-image: url('../img/bgs/darkgirl.jpg');
+      background-position: center top;
+     
+      @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/vertical_darkgirl.jpg');
+        background-position: center center;
+       
+      }
+    }
+  }
+
+  body#hands::before {
+    background-image: url('../img/bgs/hands-feet-dark.jpg');
+    background-position: center top;
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_hands-feet-dark.jpg');
+    }
+  }
+
+  body#hair::before {
+    background-image: url('../img/bgs/hair.jpg');
+    background-position: center top;
+    
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_hair.jpg');
+    }
+
+  }
+  body#hygiene {
+    .sloganbox {
+      h1.slogan {
+        font-size: 2.6rem;
+        transform: rotate(-5deg);
+      }
+    }
+    &::before{
+      background-image: url('../img/bgs/freshandclean.jpg');
+      background-position: center top;
+     
+       @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/vertical_freshandclean.jpg');
+      }
+    }
+  }
+  body#masks::before {
+    background-image: url('../img/bgs/fruittable.jpg');
+    background-position: center top;
+  
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_fruittable.jpg');
+    }
+  }
+
+  body#page-10::before {
+    background-image: url('../img/bgs/trappa2.jpg');
+    @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_trappa2.jpg');
+    }
+  }
+
+  body#page-22::before {
+    background-image: url('../img/bgs/feather.jpg');
+  }
+
+  body#page-23 {
+    article h2.faktarutarubrik {
+      color: #FFCB05;
+    }
+    hr.primary {
+      border-top: 1px solid #FFCB05;
+    }
+    &::before {
+      background-image: url('../img/bgs/ai-lemon-crop.jpg');
+      background-position: center top;
+     
+       @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/ai-lemons.jpg');
+        
+      }
+    }
+  }
+
+  body#page-24 {
+    article {
+      background-color: rgba(25, 13, 13, 0.7);
+    }
+    &::before {
+      background-image: url('../img/bgs/choko.jpg');
+      @media screen and (max-width: $mobile) {
+       background-image: url('../img/bgs/vertical_choko.jpg');
+       background-position: center top;
+     }
+    }
+  }
+
+  body#page-25::before {
+    background-image: url('../img/bgs/mango.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/mango.jpg');
+    }
+  }
+
+  body#page-26 {
+    .sloganbox {
+      h1.slogan {
+        font-size: 2.6rem;
+        align-self: flex-start;
+        transform: rotate(-5deg);
+      }
+    }
+    &::before {
+      background-image: url('../img/bgs/rose.jpg');
+      background-position: center top;
+     
+       @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/vertical_rose.jpg');
+      }
+    }
+  }
+
+  body#page-30::before {
+    background-image: url('../img/bgs/hiding.jpg');
+    background-position: center top;
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_hiding.jpg');
+    }
+  }
+
+  body#page-31::before {
+    background-image: url('../img/bgs/water.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_water.jpg');
+    }
+  }
+
+  body#page-32::before {
+    background-image: url('../img/bgs/aromatherapy.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_aromatherapy.jpg');
+      background-position: center top;
+    }
+  }
+
+  body#page-44::before {
+    background-image: url('../img/bgs/iceland.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/iceland.jpg');
+    }
+  }
+
+  body#page-45::before {
+    background-image: url('../img/bgs/bermuda.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_bermuda.jpg');
+      background-position: center top;
+    }
+  }
+
+  body#page-47 {
+    h1.slogan {
+      align-self: flex-start;
+    }
+    &::before {
+      background-image: url('../img/bgs/dog.jpg');
+      @media screen and (max-width: $mobile) {
+       background-image: url('../img/bgs/vertical_dog.jpg');
+       background-position: center top;
+     }
+    }
+  }
+
+  body#page-48::before {
+    background-image: url('../img/bgs/lavendeloverlay.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_lavendeloverlay.jpg');
+      background-position: center top;
+    }
+  }
+
+  body#page-49 {
+    article h2.faktarutarubrik {
+      color: $light-orange;
+    }
+    hr.primary {
+      border-top: 1px solid $light-orange;
+    }
+    &::before {
+      background-image: url('../img/bgs/orangevanilla.jpg');
+      background-position: center top;
+     
+       @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/vertical_orangevanilla.jpg');
+      }
+    }
+  }
+
+  body#page-55::before {
+    background-image: url('../img/bgs/hair.jpg');
+    
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_hair.jpg');
+      background-position: center top;
+    }
+  }
+  body#page-56::before {
+    background-image: url('../img/bgs/aloe.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_aloe.jpg');
+      background-position: center top;
+    }
+  }
+  body#page-66 {
+    h1.slogan {
+      align-self: flex-start;
+    }
+    &::before {
+      background-image: url('../img/bgs/lighthouse.jpg');
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_lighthouse.jpg');
+      background-position: center top;
+      }
+    }
+  }
+
+  body#page-67::before {
+    background-image: url('../img/bgs/trappa2.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_trappa2.jpg');
+      background-position: center top;
+    }
+  }
+
+  body#page-70::before {
+    background-image: url('../img/bgs/chocolate.jpg');
+    
+     @media screen and (max-width: $mobile) {
+      background-position: center top;
+    }
+  }
+
+  body#page-71 {
+    article h2.faktarutarubrik {
+      color: $light-orange;
+    }
+    hr.primary {
+      border-top: 1px solid $light-orange;
+    }
+    &::before {
+      background-image: url('../img/bgs/girl.jpg');
+      background-position: center top;
+     
+       @media screen and (max-width: $mobile) {
+        background-image: url('../img/bgs/vertical_girl.jpg');
+      }
+    }
+  }
+  
+  body#page-72::before {
+    background-image: url('../img/bgs/poppies.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-position: center top;
+    }
+  }
+  
+  body#page-80::before {
+    background-image: url('../img/bgs/dewdrops.jpg');
+    
+     @media screen and (max-width: $mobile) {
+      background-position: center top;
+    }
+  }
+
+  body#page-81 {
+    &::before {
+      background-image: url('../img/bgs/brook.jpg');
+   
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/brook.jpg');
+      background-position: center top;
+      }
+    }  
+  }
+
+  body#page-93::before {
+    background-image: url('../img/bgs/arid.jpg');
+    background-position: center top;
+     @media screen and (max-width: $mobile) {
+      
+    }
+  }
+
+  body#braattveta::before {
+    background-image: url('../img/bgs/soffa.jpg');
+   
+     @media screen and (max-width: $mobile) {
+      background-image: url('../img/bgs/vertical_soffa.jpg');
+      background-position: center top;
+    }
+  }
+
+  //* SLOGAN BOX STYLES *//
+
+.sloganbox {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  h1.slogan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $light-color;
+    font-size: 4rem;
+    font-family: flood-std, sans-serif;
+    @media (max-width: $tablet) {
+      font-size: 3rem;
+      line-height: 3.2rem;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width:$tablet) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  @media (max-width:$mobile) {
+    max-width: 100%;
+  }
+}
+
+ .sloganbox#sloganbox10 {
+    min-height:50vh;
+    h1.slogan {
+      transform: rotate(-10deg);
+      @media (max-width: $mobile) {
+        transform: rotate(-5deg);
+      }
+    }
+   @media (max-width:$tablet) {
+     min-height:35vh;
+   }
+   @media (max-width: $mobile) {
+     min-height:20vh;
+   }
+  }
+
+.sloganbox#sloganboxindex {
+  min-height: 60vh;
+  h1.slogan {
+    transform: rotate(-10deg);
+    line-height: 1.2;
+     font-size: 5rem;
+    @media (max-width: $mobile) {
+      transform: rotate(-5deg);
+      font-size: 3.3rem;
+      line-height: 1.2;
+    }
+  }
+  @media (max-width: $tablet) {
+    min-height: 20vh;
+  }
+}
+  .sloganbox#sloganboxlow {
+    min-height:30vh;
+    h1.slogan {
+      transform: rotate(-10deg);
+      @media (max-width: $mobile) {
+        transform: rotate(-5deg);
+        font-size: 2rem;
+      }
+    }
+    @media (max-width:$tablet) {
+      min-height:20vh;
+    }
+}

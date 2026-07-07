@@ -1,0 +1,243 @@
+// Product image cards: flip-card product tiles and grids
+
+//* FLIP CARD STYLES *//
+
+.produktkort {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  grid-gap: 1rem;
+  padding: 3rem 0;
+  @media (max-width: $mobile) {
+    justify-content: space-around;
+    padding: 1.5rem 0;
+  }
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 210px;
+  height: 210px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  overflow: hidden;
+  @media(max-width:$tablet) {
+    width: 195px;
+    height: 195px;
+  }
+  @media(max-width:$mobile) {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition:0.8s;
+  -moz-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  img {
+    max-height: 200px;
+    @media(max-width:$tablet) {
+      max-height: 195px;
+    }
+    @media(max-width:$mobile) {
+      max-height: 185px;
+    }
+  }
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  position: relative;
+  border-radius: 6px;
+  h1 {
+    color: $link-color;
+    padding-top: 20px;
+    line-height: 4rem;
+    letter-spacing: 2px;
+  }
+  p {
+    color: $link-color;
+  }
+}
+.flip-card-front.ten, .card.ten {
+  background-color: $grey;
+  &:hover {
+    background-color: rgba(39, 39, 39, 0.8);
+  }
+}
+.flip-card-front.twenty2 {
+  background-color: $grey;
+  &:hover {
+    background-color: rgba(39, 39, 39, 0.8);
+  }
+}
+.flip-card-front.twenty3 {
+background-color: $yellow;
+&:hover {
+  background-color: rgba(255, 203, 5, 1);
+  }
+}
+.flip-card-front.twenty4 {
+background-color: $brown;
+&:hover {
+  background-color:rgba(140, 113, 93, 0.85);
+  }
+}
+.flip-card-front.twenty5 {
+background-color: $green;
+}
+.flip-card-front.twenty6 {
+background-color: $pink;
+}
+.flip-card-front.thirty {
+background-color: $green;
+}
+.flip-card-front.thirty1 {
+background-color: $lightblue;
+}
+.flip-card-front.thirty2 {
+background-color: $purple;
+&:hover {
+  background-color: rgba(124, 119, 173, 0.91);
+  }
+}
+.flip-card-front.forty4 {
+background-color: $grey;
+&:hover {
+  background-color: rgba(39, 39, 39, 0.8);
+}
+}
+.flip-card-front.forty5, .card.forty5 {
+background-color: $cherry;
+&:hover {
+  background-color: rgba(209, 31, 92, 0.75);
+}
+}
+.flip-card-front.forty7 {
+background-color: $dark-color;
+}
+.flip-card-front.forty8, .card.forty8 {
+background-color: $purple;
+&:hover {
+  background-color: rgba(124, 119, 173, 0.91);
+}
+}
+.flip-card-front.forty9 {
+background-color: $light-orange;
+}
+.flip-card-front.fifty5, .card.fifty5 {
+background-color: $yellow;
+&:hover {
+  background-color: rgba(255, 203, 5, 1);
+}
+}
+.flip-card-front.fifty6 {
+background-color: $pink;
+}
+.flip-card-front.sixty6 {
+background-color: $red;
+}
+.flip-card-front.sixty7 {
+background-color: $cherry;
+&:hover {
+  background-color: rgba(209, 31, 92, 0.75);
+}
+}
+.flip-card-front.seventy {
+background-color: $dark-color;
+}
+.flip-card-front.seventy1 {
+background-color: $orange;
+}
+.flip-card-front.eighty {
+background-color: $orange;
+}
+.flip-card-front.eighty1, .card.eighty1 {
+background-color: $blue;
+}
+.flip-card-front.ninty3 {
+background-color: $cherry;
+&:hover {
+  background-color: rgba(209, 31, 92, 0.75);
+}
+}
+
+
+/* Style the back side */
+.flip-card-back {
+  color: white;
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+}
+
+.produktkort-singel {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding-bottom: $base-padding;
+
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      img {
+        max-height: 300px;
+        @media(max-width:$tablet) {
+          max-height: 295px;
+        }
+        @media(max-width:$mobile) {
+          max-height: 285px;
+        }
+      }
+    }
+  }
+}
+
+// INDEX PAGE PRODUKTGRUPPER //
+
+.produktgrupp {
+  @media(max-width:$mobile) {
+    padding: 0 1rem;
+  }
+  .card {
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: $base-padding;
+    padding: 0.5rem;
+  }
+}

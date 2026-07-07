@@ -1,0 +1,139 @@
+// Site navigation: header nav, breadcrumbs, in-page jump links
+
+//* HEADER STYLES *//
+
+
+.site-header .wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  .logo img.logoimg {
+    max-width: 80px;
+    padding-top: $base-padding;
+    padding-bottom: $base-padding;
+    @media (max-width: $mobile) {
+      padding-bottom: 0;
+      padding-top: 0.8rem;
+      max-width: 40px;
+    }
+  }
+  .logonamn img.logonamnimg {
+    max-width: 40px;
+    padding-bottom: $base-padding;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+    @media (max-height: 500px) {
+      display: none;
+    }
+
+  }
+  a.namn {
+    display: none;
+    @media (max-width: $mobile) {
+      display: block;
+    }
+  }
+
+  //* NAV STYLES *//
+
+  nav ul.navi {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-top: $spacing-unit;
+    @media(max-width: $mobile) {
+      padding-top: $base-padding;
+    }
+    li.nav-item a {
+      font-size: $small-font-size;
+    }
+  }
+
+}
+
+//* BREADCRUMB STYLES *//
+
+  .sidnavi >li+li:before {
+    content: "/";
+    display: inline-block;
+    color: $blue-color;
+    font-weight: 600;
+  }
+
+  li.active  a {
+    color: $blue-color;
+    font-weight: 600;
+  }
+
+
+  ul.sidnavi {
+   margin-left: 20px;
+    li.listsidnavi {
+    padding-right: 0;
+    font-weight: 600;
+    }
+  }
+
+
+  ul.sidnavi {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    margin-bottom: 0px;
+
+    & > li {
+      display: inline;
+      padding-right: 30px;
+
+      & > a {
+        font-size: $small-font-size;
+
+        &:active {
+          color: $blue-color;
+        }
+        &:hover {
+          color: $blue-color;
+        }
+        &:focus {
+          color: $blue-color;
+          text-decortion: none;
+        }
+      }
+    }
+  }
+
+
+  .listsida a {
+    font-size: 21px;
+    &.active a {
+      color: $dark-color;
+    }
+    &:hover {
+      color: $blue-color;
+    }
+    &:focus {
+      color: $blue-color;
+      text-decortion: none;
+    }
+  }
+
+  //* JUMPTARGET STYLES *//
+  .jumptarget:before {
+    content: "";
+    display: block;
+    /*height: 80px;  fixed header height*/
+    /*margin: -80px 0 0; negative fixed header height */
+  }
+
+  .upbox a.up  {
+    display: flex;
+    justify-content:flex-end;
+    padding: $spacing-unit;
+  }
+  .upbox i {
+    padding-right: 5px;
+    padding-top: 2px;
+  }

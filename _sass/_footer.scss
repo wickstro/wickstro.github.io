@@ -1,0 +1,26 @@
+// Footer styles
+
+  //* FOOTER STYLES *//
+  footer {
+    background-color: rgba(0,0, 0, 0.8);
+    margin-top: 4rem;
+    .wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      p {
+        margin-bottom: 0;
+      }
+      img.icon {
+        display: inline-block;
+        max-width: 60px;
+      }
+      @media(max-width:$mobile) {
+        footer h1 {
+          font-size: 22px;
+        }
+      }
+    }
+
+  }

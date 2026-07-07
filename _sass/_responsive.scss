@@ -1,0 +1,47 @@
+// Global responsive overrides (kept last so they win the cascade)
+
+  //* MEDIA QUERIES *//
+
+  @include media-query($laptop) {
+    .faktaruta {
+      margin-bottom: 16px;
+    }
+
+  }
+
+  @include media-query($tablet) {
+    p, a, li {
+      font-size: $small-font-size;
+    }
+
+    h1, .hero h1, .buy-box h1, h2.pris, h2 {
+      font-size: 2rem;
+      line-height: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+  }
+
+  @include media-query($mobile) {
+
+    .padding {
+      padding-top: $spacing-unit;
+      padding-bottom: $spacing-unit;
+    }
+
+    .dubbelpadding {
+      padding-top: $base-padding;
+      padding-bottom: $base-padding;
+    }
+
+    .fb-like {
+      max-width: 98%;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    aside.fb {
+      padding-left: 1rem;
+    }
+
+  }

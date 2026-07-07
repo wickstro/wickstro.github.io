@@ -1,0 +1,109 @@
+// Page content sections: article body, "Bra att veta" page
+
+  //* ARTICLE STYLES *//
+
+  article {
+    z-index: 5;
+    header h1 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h2.om {
+      padding-top: $base-padding;
+    }
+    img.img-fluid.produktprofilbild {
+      max-width: 300px;
+    }
+    h2.pris, h1.pris {
+      display: none;
+      /*font-family: "bebas-neue",sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: $link-color;*/
+    }
+    h2.faktarutarubrik, h1.faktarutarubrik {
+      font-family: flood-std, sans-serif;
+      letter-spacing: 0;
+      margin-bottom: 1.5rem;
+      padding-top: $base-padding;
+    }
+    ul.ingredienslista {
+      list-style: none;
+      padding-bottom: $base-padding;
+      li {
+        color: $light-color;
+      }
+    }
+    p.ingredienser {
+      color:  $light-color;
+    }
+    ul.plus {
+      list-style-image: url('../img/plus.png');
+      padding-bottom: 1rem;
+      padding-left: $spacing-unit;
+      li {
+        color: $text-color;
+      }
+    }
+    ul.minus {
+      list-style-image: url('../img/minus.png');
+      padding-left: $spacing-unit;
+      padding-bottom: 1rem;
+      li {
+        color: $text-color;
+      }
+    }
+
+  }
+
+  // BRA ATT VETA -SIDAN //
+  #braattveta {
+    nav {
+      ul.nobullets {
+        padding-left: $base-padding;
+        padding-bottom: $base-padding;
+        list-style: none;
+        li {
+          color: $light-color;
+        }
+      }
+
+    }
+    ul.nobullets {
+      list-style: none;
+    }
+    p b {
+      color: $pink;
+    }
+    ul.plus {
+      list-style-image: url('../img/plus.png');
+      padding-bottom: 1rem;
+      padding-left: $spacing-unit;
+      li {
+        color: $text-color;
+      }
+    }
+    ul.minus {
+      list-style-image: url('../img/minus.png');
+      padding-left: $spacing-unit;
+      padding-bottom: 1rem;
+      li {
+        color: $text-color;
+      }
+    }
+  }
+
+  img.img-fluid.profilbild {
+    max-width: 250px;
+  }
+
+  h2.faktarutarubrik, h1.faktarutarubrik {
+    font-family: flood-std, sans-serif;
+    letter-spacing: 0;
+    margin-bottom: 1.5rem;
+    padding-top: $base-padding;
+    transform: rotate -3 deg;
+    color: $blue-color;
+  }
+

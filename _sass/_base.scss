@@ -1,0 +1,90 @@
+// Base document/body styles + the #sitewrapper layout grid
+
+//* DOC STYLES *//
+html {
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+  body {
+    position: relative;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    h1.slogan {
+      text-shadow: 0px 1px 3px rgba(39, 39, 39, 0.65);
+    }
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    display: block;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+
+#sitewrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media (min-width: $laptop) {
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1253px;
+  }
+
+  header.site-header {
+    z-index: 4;
+    width: 11%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    @media (max-width: $tablet) {
+      width: 15%;
+    }
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      position: relative;
+      height: auto;
+    }
+  }
+
+  .page-content {
+    width: 70%;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 3;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
