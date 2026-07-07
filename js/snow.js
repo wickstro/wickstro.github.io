@@ -7,7 +7,7 @@
  * UMD/module wrapper or ES5 class polyfills.
  *
  * Usage: new Snow('#selector', { number, r, v, color, shape })
- * shape is 'circle' (default), 'star', 'raindrop', or 'flower'.
+ * shape is 'circle' (default), 'star', 'raindrop', 'flower', or 'sun'.
  */
 (function () {
     'use strict';
@@ -88,6 +88,32 @@
         ctx.closePath();
     }
 
+    // Traces a sun (a center circle + narrow triangular rays) centered
+    // at (x, y), as one path - unlike the star's wide zigzag points,
+    // the rays here are thin needles so it doesn't read as a star.
+    function traceSunPath(ctx, x, y, r) {
+        var rays = 8;
+        var centerRadius = r * 0.5;
+        var rayLength = r * 1.4;
+        var halfWidth = 0.12;
+        ctx.beginPath();
+        for (var i = 0; i < rays; i += 1) {
+            var angle = (i / rays) * 2 * Math.PI;
+            var tipX = x + Math.cos(angle) * (centerRadius + rayLength);
+            var tipY = y + Math.sin(angle) * (centerRadius + rayLength);
+            var baseLeftX = x + Math.cos(angle - halfWidth) * centerRadius;
+            var baseLeftY = y + Math.sin(angle - halfWidth) * centerRadius;
+            var baseRightX = x + Math.cos(angle + halfWidth) * centerRadius;
+            var baseRightY = y + Math.sin(angle + halfWidth) * centerRadius;
+            ctx.moveTo(baseLeftX, baseLeftY);
+            ctx.lineTo(tipX, tipY);
+            ctx.lineTo(baseRightX, baseRightY);
+        }
+        ctx.moveTo(x + centerRadius, y);
+        ctx.arc(x, y, centerRadius, 0, 2 * Math.PI);
+        ctx.closePath();
+    }
+
     class SnowParticle {
         constructor(options) {
             this.ctx = options.ctx;
@@ -107,7 +133,7 @@
             var x = Math.floor(this.x);
             var y = Math.floor(this.y);
             this.ctx.fillStyle = this.color;
-            // Star/raindrop/flower cover more area than a plain snow
+            // Star/raindrop/flower/sun cover more area than a plain snow
             // circle, so they read as noticeably more solid at the same
             // alpha - fade them a little extra to keep them delicate.
             if (this.shape === 'star') {
@@ -119,6 +145,9 @@
             } else if (this.shape === 'flower') {
                 this.ctx.globalAlpha = 0.6;
                 traceFlowerPath(this.ctx, x, y, this.r);
+            } else if (this.shape === 'sun') {
+                this.ctx.globalAlpha = 0.6;
+                traceSunPath(this.ctx, x, y, this.r);
             } else {
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, this.r, 0, 2 * Math.PI, true);
@@ -147,7 +176,7 @@
          * @param {number} [options.r] base particle radius
          * @param {number} [options.v] fall speed
          * @param {string} [options.color] CSS rgb(...) color
-         * @param {string} [options.shape] 'circle' | 'star' | 'raindrop' | 'flower'
+         * @param {string} [options.shape] 'circle' | 'star' | 'raindrop' | 'flower' | 'sun'
          */
         constructor(selector, options) {
             this.element = document.querySelector(selector);
