@@ -45,6 +45,34 @@
         return deg;
     }
 
+    // Traces a 5-point star path centered at (x, y). Caller fills it.
+    function traceStarPath(ctx, x, y, r) {
+        var spikes = 5;
+        var outerRadius = r * 1.8;
+        var innerRadius = r * 0.8;
+        var rot = (Math.PI / 2) * 3;
+        var step = Math.PI / spikes;
+        ctx.beginPath();
+        ctx.moveTo(x, y - outerRadius);
+        for (var i = 0; i < spikes; i += 1) {
+            ctx.lineTo(x + Math.cos(rot) * outerRadius, y + Math.sin(rot) * outerRadius);
+            rot += step;
+            ctx.lineTo(x + Math.cos(rot) * innerRadius, y + Math.sin(rot) * innerRadius);
+            rot += step;
+        }
+        ctx.lineTo(x, y - outerRadius);
+        ctx.closePath();
+    }
+
+    // Traces a raindrop path (pointed top, rounded bottom) centered at (x, y). Caller fills it.
+    function traceRaindropPath(ctx, x, y, r) {
+        ctx.beginPath();
+        ctx.moveTo(x, y - r * 1.6);
+        ctx.bezierCurveTo(x + r * 1.3, y - r * 0.2, x + r, y + r, x, y + r);
+        ctx.bezierCurveTo(x - r, y + r, x - r * 1.3, y - r * 0.2, x, y - r * 1.6);
+        ctx.closePath();
+    }
+
     var classCallCheck = function (instance, Constructor) {
         if (!(instance instanceof Constructor)) {
             throw new TypeError("Cannot call a class as a function");
@@ -86,7 +114,8 @@
                 x = _option.x,
                 y = _option.y,
                 r = _option.r,
-                v = _option.v;
+                v = _option.v,
+                shape = _option.shape;
 
             this.color = color.replace('rgb', 'rgba').split(')')[0] + ',' + (Math.floor(Math.random() * 50) + 50) / 100 + ')';
             this.content = content;
@@ -94,6 +123,7 @@
             this.x = x;
             this.y = y;
             this.v = v;
+            this.shape = shape || 'circle';
             this.angle = Math.PI * Math.random();
             // this.init();
         }
@@ -108,12 +138,19 @@
                     color = this.color,
                     x = this.x,
                     y = this.y,
-                    r = this.r;
+                    r = this.r,
+                    shape = this.shape;
 
-                content.beginPath();
-                content.arc(Math.floor(x), Math.floor(y), r, 0, 2 * Math.PI, true);
-                content.closePath();
                 content.fillStyle = color;
+                if (shape === 'star') {
+                    traceStarPath(content, Math.floor(x), Math.floor(y), r);
+                } else if (shape === 'raindrop') {
+                    traceRaindropPath(content, Math.floor(x), Math.floor(y), r);
+                } else {
+                    content.beginPath();
+                    content.arc(Math.floor(x), Math.floor(y), r, 0, 2 * Math.PI, true);
+                    content.closePath();
+                }
                 content.fill();
             }
         }, {
@@ -189,7 +226,8 @@
                 var _option3 = this.option,
                     r = _option3.r,
                     v = _option3.v,
-                    color = _option3.color;
+                    color = _option3.color,
+                    shape = _option3.shape;
                 var ctx = this.ctx,
                     width = this.width,
                     height = this.height,
@@ -199,6 +237,7 @@
                 for (var i = 0; i < number; i += 1) {
                     var particle = new SnowParticle({
                         color: color || 'rgb(255,255,255)',
+                        shape: shape || 'circle',
                         content: ctx,
                         y: Math.floor(Math.random() * height),
                         x: Math.floor(Math.random() * width),
