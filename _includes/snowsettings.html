@@ -1,54 +1,48 @@
-{% if page.tag  == "yellow" %}
+{% if page.tag == "yellow" %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        new Snow('#sitewrapper' ,{
-            number:45,
-            r: 4,
-            v: 1.4,
-            color: 'rgb(255,223,23)',
-            shape: '{{ page.shape | default: "circle" }}',
-        });
-    });
+	document.addEventListener("DOMContentLoaded", function () {
+		new Snow("#sitewrapper", {
+			number: 15,
+			r: 8,
+			v: 0.6,
+			color: "rgb(255,223,23)",
+			shape: '{{ page.shape | default: "sun" }}',
+		});
+	});
 </script>
-{% endif %}
-
-{% if page.tag  == "pink" %}
+{% endif %} {% if page.tag == "pink" %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        new Snow('#sitewrapper' ,{
-            number:45,
-            r: 4,
-            v: 1.4,
-            color: 'rgb(246,173,205)',
-            shape: '{{ page.shape | default: "circle" }}',
-        });
-    });
+	document.addEventListener("DOMContentLoaded", function () {
+		new Snow("#sitewrapper", {
+			number: 15,
+			r: 4,
+			v: 0.5,
+			color: "rgb(246,173,205)",
+			shape: '{{ page.shape | default: "circle" }}',
+		});
+	});
 </script>
-{% endif %}
-
-{% if page.tag  == "blue" %}
+{% endif %} {% if page.tag == "blue" %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        new Snow('#sitewrapper' ,{
-            number:15,
-            r: 2.5,
-            v: 0.8,
-            color: 'rgb(150,193,255)',
-            shape: '{{ page.shape | default: "circle" }}',
-        });
-    });
+	document.addEventListener("DOMContentLoaded", function () {
+		new Snow("#sitewrapper", {
+			number: 30,
+			r: 3,
+			v: 0.5,
+			color: "rgb(150,193,255)",
+			shape: '{{ page.shape | default: "raindrop" }}',
+		});
+	});
 </script>
-{% endif %}
-
-{% if page.tag  == "white" %}
+{% endif %} {% if page.tag == "white" %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        new Snow('#sitewrapper' ,{
-            number:45,
-            r: 2,
-            v: 0.6,
-            shape: '{{ page.shape | default: "circle" }}',
-        });
-    });
+	document.addEventListener("DOMContentLoaded", function () {
+		new Snow("#sitewrapper", {
+			number: 45,
+			r: 2,
+			v: 0.6,
+			shape: '{{ page.shape | default: "circle" }}',
+		});
+	});
 </script>
 {% endif %}
