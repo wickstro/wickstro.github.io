@@ -1,48 +1,42 @@
 /*!
- * Snow.js v1.0.0
- * https://github.com/zmfe/snow.js
+ * Snow.js
+ * Falling-particle overlay (snow / stars / raindrops) for a full-page canvas.
+ * Originally based on https://github.com/zmfe/snow.js (MIT, 2018),
+ * rewritten as a plain ES6 class - this is loaded as a plain <script>
+ * on this site, not published as a package, so it doesn't need a
+ * UMD/module wrapper or ES5 class polyfills.
  *
- * Copyright (c) 2018 undefined
- * Released under the MIT license
- *
- * Date: 2018-01-16T11:55:01.675Z
+ * Usage: new Snow('#selector', { number, r, v, color, shape })
+ * shape is 'circle' (default), 'star', or 'raindrop'.
  */
+(function () {
+    'use strict';
 
-(function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-        typeof define === 'function' && define.amd ? define(factory) :
-            (global.Snow = factory());
-}(this, (function () { 'use strict';
-
-    var _window = window;
-    var document = _window.document;
-    var DEFAULT_OPTIONS = {};
-    var DEFAULT_SNOWPARTICLE_OPTIONS = {
-        index: 0,
-        x: 0,
-        y: 0,
-        context: '',
-        color: 'rgb(255, 255, 255)',
-        r: 1
-    };
-    function DEG(deg) {
+    function degToRad(deg) {
         return Math.PI * (deg / 180);
     }
-    function SINDEG(deg) {
-        if (deg > DEG(165)) {
-            deg -= Math.PI / 4;
-        } else if (deg < DEG(15)) {
-            deg += Math.PI / 4;
+
+    // These nudge a particle's travel angle before it's fed into sin/cos,
+    // so it drifts side to side instead of falling in a dead-straight
+    // line; the exact adjustment amounts are tuned by feel, not derived.
+    function sinAdjust(angle) {
+        if (angle > degToRad(165)) {
+            return angle - Math.PI / 4;
         }
-        return deg;
+        if (angle < degToRad(15)) {
+            return angle + Math.PI / 4;
+        }
+        return angle;
     }
-    function COSDEG(deg) {
-        if (deg > DEG(15) && deg <= DEG(90)) {
-            deg -= Math.PI / 6;
-        } else if (deg > DEG(90) && deg <= DEG(165)) {
-            deg += Math.PI / 6;
+
+    function cosAdjust(angle) {
+        if (angle > degToRad(15) && angle <= degToRad(90)) {
+            return angle - Math.PI / 6;
         }
-        return deg;
+        if (angle > degToRad(90) && angle <= degToRad(165)) {
+            return angle + Math.PI / 6;
+        }
+        return angle;
     }
 
     // Traces a 5-point star path centered at (x, y). Caller fills it.
@@ -73,233 +67,163 @@
         ctx.closePath();
     }
 
-    var classCallCheck = function (instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    };
-
-    var createClass = function () {
-        function defineProperties(target, props) {
-            for (var i = 0; i < props.length; i++) {
-                var descriptor = props[i];
-                descriptor.enumerable = descriptor.enumerable || false;
-                descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
-                Object.defineProperty(target, descriptor.key, descriptor);
-            }
-        }
-
-        return function (Constructor, protoProps, staticProps) {
-            if (protoProps) defineProperties(Constructor.prototype, protoProps);
-            if (staticProps) defineProperties(Constructor, staticProps);
-            return Constructor;
-        };
-    }();
-
-    var SnowParticle = function () {
-        /**
-         * Creates an instance of SnowParticle.
-         * @param {Object} option content, x, y, color
-         * @memberof Snow
-         */
-        function SnowParticle() {
-            var option = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-            classCallCheck(this, SnowParticle);
-
-            this.option = Object.assign({}, DEFAULT_SNOWPARTICLE_OPTIONS, option);
-            var _option = this.option,
-                content = _option.content,
-                color = _option.color,
-                x = _option.x,
-                y = _option.y,
-                r = _option.r,
-                v = _option.v,
-                shape = _option.shape;
-
-            this.color = color.replace('rgb', 'rgba').split(')')[0] + ',' + (Math.floor(Math.random() * 50) + 50) / 100 + ')';
-            this.content = content;
-            this.r = r * (Math.random() * 0.4 + 0.6);
-            this.x = x;
-            this.y = y;
-            this.v = v;
-            this.shape = shape || 'circle';
+    class SnowParticle {
+        constructor(options) {
+            this.ctx = options.ctx;
+            this.color = options.color.replace('rgb', 'rgba').split(')')[0] +
+                ',' + (Math.floor(Math.random() * 50) + 50) / 100 + ')';
+            this.shape = options.shape || 'circle';
+            this.r = options.r * (Math.random() * 0.4 + 0.6);
+            this.v = options.v;
+            this.x = options.x;
+            this.y = options.y;
+            this.width = options.width;
+            this.height = options.height;
             this.angle = Math.PI * Math.random();
-            // this.init();
         }
-        // init() {
-        // }
 
-
-        createClass(SnowParticle, [{
-            key: 'draw',
-            value: function draw() {
-                var content = this.content,
-                    color = this.color,
-                    x = this.x,
-                    y = this.y,
-                    r = this.r,
-                    shape = this.shape;
-
-                content.fillStyle = color;
-                if (shape === 'star') {
-                    traceStarPath(content, Math.floor(x), Math.floor(y), r);
-                } else if (shape === 'raindrop') {
-                    traceRaindropPath(content, Math.floor(x), Math.floor(y), r);
-                } else {
-                    content.beginPath();
-                    content.arc(Math.floor(x), Math.floor(y), r, 0, 2 * Math.PI, true);
-                    content.closePath();
-                }
-                content.fill();
+        draw() {
+            var x = Math.floor(this.x);
+            var y = Math.floor(this.y);
+            this.ctx.fillStyle = this.color;
+            if (this.shape === 'star') {
+                traceStarPath(this.ctx, x, y, this.r);
+            } else if (this.shape === 'raindrop') {
+                traceRaindropPath(this.ctx, x, y, this.r);
+            } else {
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, this.r, 0, 2 * Math.PI, true);
+                this.ctx.closePath();
             }
-        }, {
-            key: 'move',
-            value: function move() {
-                var _option2 = this.option,
-                    width = _option2.width,
-                    height = _option2.height;
+            this.ctx.fill();
+        }
 
-                this.x += this.v * Math.cos(COSDEG(this.angle)) * 0.3;
-                this.y += this.v * Math.sin(SINDEG(this.angle));
-                if (this.y > height || this.x > width || this.x < 0) {
-                    this.y = 0;
-                    this.x = Math.random() * width;
-                    this.angle = Math.PI * Math.random();
-                }
+        move() {
+            this.x += this.v * Math.cos(cosAdjust(this.angle)) * 0.3;
+            this.y += this.v * Math.sin(sinAdjust(this.angle));
+            if (this.y > this.height || this.x > this.width || this.x < 0) {
+                this.y = 0;
+                this.x = Math.random() * this.width;
+                this.angle = Math.PI * Math.random();
             }
-        }]);
-        return SnowParticle;
-    }();
+        }
+    }
 
-    var Snow = function () {
+    class Snow {
         /**
-         * Creates an instance of Snow.
-         * @param {Element} element target
-         * @param {Object} [option={}] options
-         * @memberof Snow
+         * @param {string} selector CSS selector for the element the canvas is appended to
+         * @param {Object} [options]
+         * @param {number} [options.number] particle count
+         * @param {number} [options.r] base particle radius
+         * @param {number} [options.v] fall speed
+         * @param {string} [options.color] CSS rgb(...) color
+         * @param {string} [options.shape] 'circle' | 'star' | 'raindrop'
          */
-        function Snow(element) {
-            var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-            classCallCheck(this, Snow);
-
-            this.element = document.querySelector(element);
-            this.canvas = '';
-            this.ctx = '';
+        constructor(selector, options) {
+            this.element = document.querySelector(selector);
+            if (!this.element) {
+                return;
+            }
+            this.options = options || {};
+            this.particles = [];
             this.width = 0;
             this.height = 0;
-            this.option = Object.assign({}, DEFAULT_OPTIONS, option);
-            this.number = this.option.number;
-            this.partiles = [];
+
+            var prefersReducedMotion = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) {
+                return;
+            }
+
             this.init();
         }
 
-        createClass(Snow, [{
-            key: 'init',
-            value: function init() {
-                this.width = window.innerWidth;
-                this.height = window.innerHeight;
-                this.createCanvas();
-                this.createParticle();
-                this.bindResize();
-            }
-        }, {
-            key: 'createCanvas',
-            value: function createCanvas() {
-                var element = this.element,
-                    width = this.width,
-                    height = this.height;
+        init() {
+            this.width = window.innerWidth;
+            this.height = window.innerHeight;
+            this.createCanvas();
+            this.createParticles();
+            this.animate();
+            this.bindResize();
+        }
 
-                var canvas = document.createElement('canvas');
-                canvas.width = width;
-                canvas.height = height;
-                // Fixed + viewport-sized so the snow always covers exactly
-                // the visible screen, regardless of how tall the page content is.
-                canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0);pointer-events:none;z-index:1;';
-                element.appendChild(canvas);
-                this.canvas = canvas;
-                this.ctx = canvas.getContext('2d');
-            }
-        }, {
-            key: 'createParticle',
-            value: function createParticle() {
-                var _option3 = this.option,
-                    r = _option3.r,
-                    v = _option3.v,
-                    color = _option3.color,
-                    shape = _option3.shape;
-                var ctx = this.ctx,
-                    width = this.width,
-                    height = this.height,
-                    number = this.number,
-                    partiles = this.partiles;
+        createCanvas() {
+            var canvas = document.createElement('canvas');
+            canvas.width = this.width;
+            canvas.height = this.height;
+            // Fixed + viewport-sized so the snow always covers exactly
+            // the visible screen, regardless of how tall the page content is.
+            canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;' +
+                'background:rgba(0,0,0,0);pointer-events:none;z-index:1;';
+            this.element.appendChild(canvas);
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+        }
 
-                for (var i = 0; i < number; i += 1) {
-                    var particle = new SnowParticle({
-                        color: color || 'rgb(255,255,255)',
-                        shape: shape || 'circle',
-                        content: ctx,
-                        y: Math.floor(Math.random() * height),
-                        x: Math.floor(Math.random() * width),
-                        r: r,
-                        v: v,
-                        width: this.width,
-                        height: this.height
-                        // angle: Math.PI,
-                    });
-                    partiles.push(particle);
+        createParticles() {
+            var number = this.options.number || 0;
+            var color = this.options.color || 'rgb(255,255,255)';
+            var shape = this.options.shape || 'circle';
+            for (var i = 0; i < number; i += 1) {
+                var particle = new SnowParticle({
+                    ctx: this.ctx,
+                    color: color,
+                    shape: shape,
+                    r: this.options.r,
+                    v: this.options.v,
+                    x: Math.floor(Math.random() * this.width),
+                    y: Math.floor(Math.random() * this.height),
+                    width: this.width,
+                    height: this.height
+                });
+                particle.draw();
+                this.particles.push(particle);
+            }
+        }
+
+        animate() {
+            var self = this;
+            (function frame() {
+                self.ctx.clearRect(0, 0, self.width, self.height);
+                self.particles.forEach(function (particle) {
+                    particle.move();
                     particle.draw();
-                }
-                var self = this;
-                function animate() {
-                    ctx.clearRect(0, 0, self.width, self.height);
-                    partiles.forEach(function (item) {
-                        item.move();
-                        item.draw();
-                    });
-                    requestAnimationFrame(animate);
-                }
-                animate();
-            }
-        }, {
-            key: 'bindResize',
-            value: function bindResize() {
-                var self = this;
-                var resizeTimer = null;
-                window.addEventListener('resize', function () {
-                    clearTimeout(resizeTimer);
-                    resizeTimer = setTimeout(function () {
-                        self.resize();
-                    }, 150);
                 });
-            }
-        }, {
-            key: 'resize',
-            value: function resize() {
-                var width = window.innerWidth;
-                var height = window.innerHeight;
-                var oldWidth = this.width;
-                var oldHeight = this.height;
-                this.width = width;
-                this.height = height;
-                this.canvas.width = width;
-                this.canvas.height = height;
-                // Rescale existing particles proportionally so the snow
-                // keeps covering the whole screen immediately, instead of
-                // waiting for each particle to wrap around on its own.
-                var xRatio = oldWidth ? width / oldWidth : 1;
-                var yRatio = oldHeight ? height / oldHeight : 1;
-                this.partiles.forEach(function (item) {
-                    item.option.width = width;
-                    item.option.height = height;
-                    item.x *= xRatio;
-                    item.y *= yRatio;
-                });
-            }
-        }]);
-        return Snow;
-    }();
+                requestAnimationFrame(frame);
+            })();
+        }
 
-    return Snow;
+        bindResize() {
+            var self = this;
+            var resizeTimer = null;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    self.resize();
+                }, 150);
+            });
+        }
 
-})));
+        resize() {
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var xRatio = this.width ? width / this.width : 1;
+            var yRatio = this.height ? height / this.height : 1;
+            this.width = width;
+            this.height = height;
+            this.canvas.width = width;
+            this.canvas.height = height;
+            // Rescale existing particles proportionally so the snow
+            // keeps covering the whole screen immediately, instead of
+            // waiting for each particle to wrap around on its own.
+            this.particles.forEach(function (particle) {
+                particle.width = width;
+                particle.height = height;
+                particle.x *= xRatio;
+                particle.y *= yRatio;
+            });
+        }
+    }
+
+    window.Snow = Snow;
+})();
