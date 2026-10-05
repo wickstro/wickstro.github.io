@@ -2,6 +2,7 @@
     <ul class="navi">
         <li class="nav-item"><a  href="/fi/#page-produkter">Tuotteet</a></li>
         <li class="nav-item"><a  href="/fi/hyvatietaa">Hyvä tietää</a></li>
-        <li class="nav-item"><a  href="/">Svenska</a></li>
+        {% include lang-counterpart.html fallback="/" %}
+        <li class="nav-item"><a  href="{{ counterpart_url }}" hreflang="sv" lang="sv">Svenska</a></li>
     </ul>
 </nav>

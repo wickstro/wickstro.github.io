@@ -1,9 +1,0 @@
-<!-- Thins and roughens the edges of the brush font (used via the brush-font mixin).
-     feMorphology radius = how much is shaved off each side of a stroke, in px. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <filter id="brush-rough">
-    <feMorphology in="SourceGraphic" operator="erode" radius="0.7" result="thin"/>
-    <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="3" result="noise"/>
-    <feDisplacementMap in="thin" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-</svg>

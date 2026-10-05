@@ -3,12 +3,13 @@ $base-font-family: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
 $heading-font-family: "Bebas Neue", "Arial Narrow", sans-serif;
 $brush-font-family: "Permanent Marker", cursive;
 
-// Permanent Marker has a single weight and no italic, so the slant and the
-// rough edges are added here. The filter lives in _includes/brush-filter.html.
+// Permanent Marker has a single weight and no italic, so the slant is added here.
+$brush-line-height: 1.2;
+
 @mixin brush-font {
   font-family: $brush-font-family;
+  line-height: $brush-line-height;
   transform: skewX(-6deg);
-  filter: url(#brush-rough);
 }
 $base-font-size:   1.2rem;
 $base-font-weight: 400;
@@ -41,6 +42,16 @@ $yellow: rgba(255, 203, 5, 0.8);
 $red: rgba(237, 28, 36, 0.75);
 $lightblue:         #90d7ec;
 $light-transparent: rgba(252, 250, 248, 0.71);
+
+// Colour themes: a page picks one with "theme: <name>" in its front matter.
+// The accent colours fact-box headings, divider lines and plus/minus signs.
+$accent-themes: (
+  "blue":   $blue-color,
+  "yellow": #ffcb05,
+  "orange": $light-orange,
+  "pink":   #f6adcd,
+  "green":  #4fd18b, // lighter tint of $green, the No 30 Clarified card colour
+);
 
 
 // Use media queries like this:

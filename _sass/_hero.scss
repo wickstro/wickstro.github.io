@@ -53,12 +53,20 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
 
+  // Slogan on the left, beside the head rather than on top of it
+  body#hair h1.slogan {
+    margin-right: auto;
+    @media (max-width: $mobile) {
+      margin-right: 0;
+    }
+  }
+
   body#hair::before {
-    background-image: url('../img/bgs/hair.jpg');
+    background-image: url('../img/bgs/braids.jpg');
     background-position: center top;
     
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_hair.jpg');
+      background-image: url('../img/bgs/vertical_braids.jpg');
     }
 
   }
@@ -99,12 +107,6 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
   }
 
   body#page-23 {
-    article h2.faktarutarubrik {
-      color: #FFCB05;
-    }
-    hr.primary {
-      border-top: 1px solid #FFCB05;
-    }
     &::before {
       background-image: $top-overlay, url('../img/bgs/ai-lemon-crop.jpg');
       background-position: center top;
@@ -164,11 +166,21 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
 
+  // Desktop: slogan top right, in the dark area beside the daisy
+  body#page-31 h1.slogan {
+    margin-left: auto;
+    align-self: flex-start;
+    @media (max-width: $mobile) {
+      margin-left: 0;
+      align-self: auto;
+    }
+  }
+
   body#page-31::before {
-    background-image: url('../img/bgs/water.jpg');
+    background-image: url('../img/bgs/daisy-glow.jpg');
    
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_water.jpg');
+      background-image: url('../img/bgs/vertical_daisy-glow.jpg');
     }
   }
 
@@ -221,12 +233,6 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
   }
 
   body#page-49 {
-    article h2.faktarutarubrik {
-      color: $light-orange;
-    }
-    hr.primary {
-      border-top: 1px solid $light-orange;
-    }
     &::before {
       background-image: url('../img/bgs/orangevanilla.jpg');
       background-position: center top;
@@ -284,12 +290,6 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
   }
 
   body#page-71 {
-    article h2.faktarutarubrik {
-      color: $light-orange;
-    }
-    hr.primary {
-      border-top: 1px solid $light-orange;
-    }
     &::before {
       background-image: url('../img/bgs/girl.jpg');
       background-position: center top;
@@ -328,11 +328,21 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }  
   }
 
+  // Desktop: slogan top left, away from the wasp on the right
+  body#page-93 h1.slogan {
+    margin-right: auto;
+    align-self: flex-start;
+    @media (max-width: $mobile) {
+      margin-right: 0;
+      align-self: auto;
+    }
+  }
+
   body#page-93::before {
-    background-image: url('../img/bgs/arid.jpg');
+    background-image: url('../img/bgs/wasp-drop.jpg');
     background-position: center top;
      @media screen and (max-width: $mobile) {
-      
+      background-image: url('../img/bgs/vertical_wasp-drop.jpg');
     }
   }
 
@@ -362,7 +372,6 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     @include brush-font;
     @media (max-width: $tablet) {
       font-size: 3rem;
-      line-height: 3.2rem;
       max-width: 90%;
       margin: 0 auto;
     }
@@ -396,12 +405,10 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
   min-height: 60vh;
   h1.slogan {
     transform: rotate(-10deg);
-    line-height: 1.2;
      font-size: 5rem;
     @media (max-width: $mobile) {
       transform: rotate(-5deg);
       font-size: 3.3rem;
-      line-height: 1.2;
     }
   }
   @media (max-width: $tablet) {

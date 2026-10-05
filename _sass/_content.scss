@@ -1,5 +1,32 @@
 @use "variables" as *;
 
+// Plus/minus lists: the sign sits in a thin round outline in front of each item
+@mixin pro-con-list($sign, $sign-color) {
+  list-style: none;
+  padding-left: 0;
+  padding-bottom: 1rem;
+  li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.4rem;
+    color: $text-color;
+    &::before {
+      content: $sign;
+      position: absolute;
+      left: 0;
+      top: 0.15em;
+      width: 1.25em;
+      height: 1.25em;
+      border: 1px solid $sign-color;
+      border-radius: 50%;
+      color: $sign-color;
+      font-size: 0.9em;
+      line-height: 1.2em;
+      text-align: center;
+    }
+  }
+}
+
 // Page content sections: article body, "Bra att veta" page
 
   //* ARTICLE STYLES *//
@@ -41,20 +68,10 @@
       color:  $light-color;
     }
     ul.plus {
-      list-style-image: url('../img/plus.png');
-      padding-bottom: 1rem;
-      padding-left: $spacing-unit;
-      li {
-        color: $text-color;
-      }
+      @include pro-con-list("+", var(--accent));
     }
     ul.minus {
-      list-style-image: url('../img/minus.png');
-      padding-left: $spacing-unit;
-      padding-bottom: 1rem;
-      li {
-        color: $text-color;
-      }
+      @include pro-con-list("\2212", var(--accent));
     }
 
   }
@@ -79,20 +96,10 @@
       color: $pink;
     }
     ul.plus {
-      list-style-image: url('../img/plus.png');
-      padding-bottom: 1rem;
-      padding-left: $spacing-unit;
-      li {
-        color: $text-color;
-      }
+      @include pro-con-list("+", var(--accent));
     }
     ul.minus {
-      list-style-image: url('../img/minus.png');
-      padding-left: $spacing-unit;
-      padding-bottom: 1rem;
-      li {
-        color: $text-color;
-      }
+      @include pro-con-list("\2212", var(--accent));
     }
   }
 
@@ -105,7 +112,7 @@
     letter-spacing: 0;
     margin-bottom: 1.5rem;
     padding-top: $base-padding;
-    color: $blue-color;
+    color: var(--accent);
     text-shadow: 1px 2px 3px rgba(39, 39, 39, 0.25);
   }
 

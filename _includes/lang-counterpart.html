@@ -1,0 +1,11 @@
+{% comment %}
+  Finds the same page in the other language: both versions share a "ref"
+  in their front matter. Sets "counterpart_url", falling back to the given
+  front page when this page has no translation.
+  Usage: {% include lang-counterpart.html fallback="/fi/" %}
+{% endcomment %}
+{% assign counterpart_url = include.fallback %}
+{% if page.ref %}
+  {% assign counterpart = site.pages | where: "ref", page.ref | where_exp: "p", "p.url != page.url" | first %}
+  {% if counterpart %}{% assign counterpart_url = counterpart.url %}{% endif %}
+{% endif %}

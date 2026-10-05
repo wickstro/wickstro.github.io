@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang=sv-FI>
   {% include head.html %}
-  <body id="{{ page.id }}">
-  {% include brush-filter.html %}
+  <body id="{{ page.id }}"{% if page.theme %} class="theme-{{ page.theme }}"{% endif %}>
   {% include snowsettings.html %}<!-- snow -->
   <div id="sitewrapper">
     <span class="jumptarget" id="page-top"></span>
