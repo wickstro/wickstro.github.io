@@ -241,5 +241,13 @@ background-color: $cherry;
     border-radius: 5px;
     margin-bottom: $base-padding;
     padding: 0.5rem;
+    // The default grey paragraph colour disappears on the coloured cards
+    p {
+      color: $light-color;
+    }
+    // White is unreadable on yellow
+    &.fifty5 p {
+      color: $dark-color;
+    }
   }
 }

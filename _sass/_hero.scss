@@ -2,6 +2,10 @@
 
 // Hero: per-page background images + slogan box text overlays
 
+// Dark gradient for bright backgrounds, so the slogan at the top stays
+// readable. Layer it before the image: background-image: $top-overlay, url(...)
+$top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 80%);
+
   body#page-error::before {
     background-image: url('../img/bgs/citrus_overlay.jpg');
   }
@@ -102,11 +106,11 @@
       border-top: 1px solid #FFCB05;
     }
     &::before {
-      background-image: url('../img/bgs/ai-lemon-crop.jpg');
+      background-image: $top-overlay, url('../img/bgs/ai-lemon-crop.jpg');
       background-position: center top;
      
        @media screen and (max-width: $mobile) {
-        background-image: url('../img/bgs/ai-lemons.jpg');
+        background-image: $top-overlay, url('../img/bgs/ai-lemons.jpg');
         
       }
     }
@@ -185,14 +189,11 @@
     }
   }
 
-  // Dark gradient over the bright sky so the slogan stays readable
-  $bermuda-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 80%);
-
   body#page-45::before {
-    background-image: $bermuda-overlay, url('../img/bgs/bermuda.jpg');
+    background-image: $top-overlay, url('../img/bgs/bermuda.jpg');
 
      @media screen and (max-width: $mobile) {
-      background-image: $bermuda-overlay, url('../img/bgs/vertical_bermuda.jpg');
+      background-image: $top-overlay, url('../img/bgs/vertical_bermuda.jpg');
       background-position: center top;
     }
   }

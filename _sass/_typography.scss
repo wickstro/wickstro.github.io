@@ -5,7 +5,7 @@
 //* FONT STYLES *//
 
 p {
-  font-weight: 300;
+  font-weight: $base-font-weight;
   color: $text-color;
   margin-bottom:1.1rem;
   letter-spacing: 1px;
@@ -80,7 +80,7 @@ h2 {
 
 
 h3 {
-  font-weight: 300;
+  font-weight: $base-font-weight;
   font-size: 1.4rem;
   line-height: 1.2;
   color: $text-color;
@@ -88,7 +88,7 @@ h3 {
 }
 
 h4 {
-  font-weight: 300;
+  font-weight: $base-font-weight;
   font-size: 1.4rem;
   color: $text-color;
   margin-bottom: 0.6rem;
