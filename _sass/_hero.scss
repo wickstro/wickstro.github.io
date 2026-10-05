@@ -185,11 +185,14 @@
     }
   }
 
+  // Dark gradient over the bright sky so the slogan stays readable
+  $bermuda-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 80%);
+
   body#page-45::before {
-    background-image: url('../img/bgs/bermuda.jpg');
-   
+    background-image: $bermuda-overlay, url('../img/bgs/bermuda.jpg');
+
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_bermuda.jpg');
+      background-image: $bermuda-overlay, url('../img/bgs/vertical_bermuda.jpg');
       background-position: center top;
     }
   }
