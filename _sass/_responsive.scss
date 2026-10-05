@@ -16,7 +16,7 @@
       font-size: $small-font-size;
     }
 
-    h1, .hero h1, .buy-box h1, h2.pris, h2 {
+    h1, .h1, .hero h1, .buy-box h1, h2 {
       font-size: 2rem;
       line-height: 2.4rem;
       margin-bottom: 0.5rem;
@@ -38,9 +38,6 @@
 
     .fb-like {
       max-width: 98%;
-    }
-    h3 {
-      font-size: 1.4rem;
     }
     aside.fb {
       padding-left: 1rem;

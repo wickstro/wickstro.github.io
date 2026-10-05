@@ -55,7 +55,10 @@ li {
   text-transform: capitalize;
 }
 
-h1 {
+// .h1 gives the h1 look to other elements (h2 section headings, the site
+// name, product-page slogans), so each page has only one real h1
+h1,
+.h1 {
   font-family: $heading-font-family;
   font-style: normal;
   font-weight: 400;
@@ -63,6 +66,7 @@ h1 {
   letter-spacing: 4px;
   color: $link-color;
   text-transform: uppercase;
+  line-height: inherit;
   margin-bottom: 0;
 }
 
@@ -80,17 +84,25 @@ h2 {
 
 
 h3 {
-  font-weight: $base-font-weight;
+  font-weight: 400;
   font-size: 1.4rem;
   line-height: 1.2;
-  color: $text-color;
+  color: $light-color;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
-h4 {
-  font-weight: $base-font-weight;
+// .h4 gives the h4 look to a heading one level higher (e.g. an h3 directly
+// under an h2), so heading levels don't skip
+h4,
+.h4 {
+  font-family: $base-font-family;
+  letter-spacing: normal;
+  font-weight: 500;
   font-size: 1.4rem;
+  line-height: inherit;
   color: $text-color;
+  margin-top: 0;
   margin-bottom: 0.6rem;
   text-transform: uppercase;
 }

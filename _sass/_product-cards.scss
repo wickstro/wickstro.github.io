@@ -83,7 +83,7 @@
   -webkit-transform: rotateY(0deg);
   position: relative;
   border-radius: 6px;
-  h1 {
+  h1, .h1 {
     color: $link-color;
     padding-top: 20px;
     line-height: 4rem;
@@ -247,7 +247,7 @@ background-color: $cherry;
     }
     // White is unreadable on yellow
     &.fifty5 p {
-      color: $dark-color;
+      color: #4d4d4d;
     }
   }
 }
