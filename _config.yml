@@ -23,7 +23,7 @@ email: lotta.hardman@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Färska ekologiska hud- och hårvårds&shy;produkter utan onödig kemikalie&shy;belastning. / Tuoreita ekologisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://drhardman.fi" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://drhardman.fi" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  wickstro
 permalink: pretty
 
