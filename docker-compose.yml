@@ -1,6 +1,7 @@
 services:
   jekyll:
-    image: jekyll/jekyll:latest
+    image: ruby:3.3
+    working_dir: /srv/jekyll
     command: bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling"
     ports:
       - "4000:4000"
