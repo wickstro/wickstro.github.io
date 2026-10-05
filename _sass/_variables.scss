@@ -1,5 +1,15 @@
 // Our variables
-$base-font-family: 'Cronos Pro', sans-serif;
+$base-font-family: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+$heading-font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+$brush-font-family: "Permanent Marker", cursive;
+
+// Permanent Marker has a single weight and no italic, so the slant and the
+// rough edges are added here. The filter lives in _includes/brush-filter.html.
+@mixin brush-font {
+  font-family: $brush-font-family;
+  transform: skewX(-6deg);
+  filter: url(#brush-rough);
+}
 $base-font-size:   1.2rem;
 $base-font-weight: 300;
 $small-font-size:  $base-font-size * 0.875;

@@ -56,7 +56,7 @@ li {
 }
 
 h1 {
-  font-family: "bebas-neue",sans-serif;
+  font-family: $heading-font-family;
   font-style: normal;
   font-weight: 400;
   font-size: 3rem;
@@ -67,7 +67,7 @@ h1 {
 }
 
 h2 {
-  font-family: "bebas-neue",sans-serif;
+  font-family: $heading-font-family;
   font-style: normal;
   font-weight: 400;
   font-size: 3rem;

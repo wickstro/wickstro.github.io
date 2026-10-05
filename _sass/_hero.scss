@@ -355,7 +355,7 @@
     text-align: center;
     color: $light-color;
     font-size: 4rem;
-    font-family: flood-std, sans-serif;
+    @include brush-font;
     @media (max-width: $tablet) {
       font-size: 3rem;
       line-height: 3.2rem;

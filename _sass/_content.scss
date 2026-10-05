@@ -25,7 +25,7 @@
       color: $link-color;*/
     }
     h2.faktarutarubrik, h1.faktarutarubrik {
-      font-family: flood-std, sans-serif;
+      @include brush-font;
       letter-spacing: 0;
       margin-bottom: 1.5rem;
       padding-top: $base-padding;
@@ -101,11 +101,18 @@
   }
 
   h2.faktarutarubrik, h1.faktarutarubrik {
-    font-family: flood-std, sans-serif;
+    @include brush-font;
     letter-spacing: 0;
     margin-bottom: 1.5rem;
     padding-top: $base-padding;
-    transform: rotate -3 deg;
     color: $blue-color;
+    text-shadow: 1px 2px 3px rgba(39, 39, 39, 0.25);
   }
 
+
+// Tilted "Snabbfakta" heading. fit-content keeps the rotation centred on the
+// text instead of the full column width.
+.faktarutarubrik.snabbfakta {
+  width: fit-content;
+  transform: rotate(-3deg) skewX(-6deg);
+}
