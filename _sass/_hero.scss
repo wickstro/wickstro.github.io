@@ -19,12 +19,20 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
 
+  // Desktop: slogan on the left, beside the couple
+  body#body h1.slogan {
+    margin-right: auto;
+    @media (max-width: $mobile) {
+      margin-right: 0;
+    }
+  }
+
   body#body::before {
-    background-image: url('../img/bgs/swimming.jpg');
+    background-image: $top-overlay, url('../img/bgs/couple-bw.jpg');
     background-position: center top;
    
     @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_swimming.jpg');
+      background-image: $top-overlay, url('../img/bgs/vertical_couple-bw.jpg');
     }
   }
 
@@ -108,11 +116,11 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
 
   body#page-23 {
     &::before {
-      background-image: $top-overlay, url('../img/bgs/ai-lemon-crop.jpg');
+      background-image: $top-overlay, url('../img/bgs/pomelo.jpg');
       background-position: center top;
      
        @media screen and (max-width: $mobile) {
-        background-image: $top-overlay, url('../img/bgs/ai-lemons.jpg');
+        background-image: $top-overlay, url('../img/bgs/vertical_pomelo.jpg');
         
       }
     }
@@ -194,10 +202,10 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
   }
 
   body#page-44::before {
-    background-image: url('../img/bgs/iceland.jpg');
+    background-image: $top-overlay, url('../img/bgs/starry-meadow.jpg');
    
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/iceland.jpg');
+      background-image: $top-overlay, url('../img/bgs/vertical_starry-meadow.jpg');
     }
   }
 

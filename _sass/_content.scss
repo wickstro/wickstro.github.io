@@ -113,6 +113,7 @@
     margin-bottom: 1.5rem;
     padding-top: $base-padding;
     color: var(--accent);
+    opacity: 0.8; // softens the accent colour a little
     text-shadow: 1px 2px 3px rgba(39, 39, 39, 0.25);
   }
 

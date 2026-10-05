@@ -1,3 +1,4 @@
+@use "sass:color";
 // Our variables
 $base-font-family: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
 $heading-font-family: "Bebas Neue", "Arial Narrow", sans-serif;
@@ -51,6 +52,7 @@ $accent-themes: (
   "orange": $light-orange,
   "pink":   #f6adcd,
   "green":  #4fd18b, // lighter tint of $green, the No 30 Clarified card colour
+  "lavender": color.change($purple, $alpha: 1), // the No 44 flip card colour, solid
 );
 
 
