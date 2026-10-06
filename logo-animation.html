@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr Hardman</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@600&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; background: #131314; }
+  body { display: grid; place-items: center; }
+  svg { width: min(94vw, 94vh); height: auto; cursor: pointer; }
+
+  /* Speech bubble: hidden until the logo is hovered (or tapped on a phone) */
+  #bubble { opacity: 0; transform: translateY(6px) scale(.96); transform-box: fill-box; transform-origin: 20% 100%;
+            transition: opacity .25s, transform .25s; pointer-events: none; }
+  #bubble text { font: 600 13px 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif; fill: #131314; }
+  svg:hover #bubble, svg.talk #bubble { opacity: 1; transform: none; }
+
+  /* Wave: three waves, then rest. Pivot = elbow (188,84). */
+  #forearm {
+    transform-box: view-box;
+    transform-origin: 188px 84px;
+    animation: wave 3.2s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30%, 50% { transform: rotate(22deg); }
+    20%, 40%      { transform: rotate(-12deg); }
+  }
+
+  /* Occasional blink */
+  #eye_R, #eye_D { transform-box: fill-box; transform-origin: center; animation: blink 5s infinite; }
+  @keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(0.1); } }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -62 224 236">
+  <!-- Dr Hardman logo, layered for Rive import. Each group id = one Rive layer. -->
+  <path id="letters" fill="#fff" fill-rule="evenodd" d="M0,0H168V167H0ZM0.00,166.50C0.00,166.00 0.17,166.00 36.22,166.00C67.18,166.00 72.48,165.95 72.73,165.65C72.96,165.38 73.00,159.40 72.93,141.08C72.85,118.02 72.82,116.69 72.31,113.00C70.33,98.63 66.00,91.41 58.13,89.38C55.90,88.81 17.10,88.81 14.87,89.38C9.29,90.82 5.38,95.07 3.01,102.25C2.27,104.52 1.34,108.50 1.02,110.87C0.73,112.96 0.31,114.75 0.12,114.75C0.05,114.75 0.00,106.48 0.00,96.38L0.00,78.00L36.20,78.00C64.02,78.00 72.47,77.93 72.70,77.70C73.13,77.27 73.13,53.73 72.70,53.30C72.47,53.07 68.96,53.00 58.43,53.00C49.28,53.00 44.30,52.91 43.98,52.74C43.53,52.50 43.50,52.16 43.50,46.79C43.50,34.98 44.84,30.68 49.12,28.70C50.34,28.14 50.64,28.12 59.62,27.99C68.37,27.86 68.95,27.83 70.23,27.31C70.97,27.01 71.90,26.46 72.29,26.09L73.00,25.41L73.00,13.48C73.00,0.00 73.06,0.45 71.26,1.46C68.83,2.83 68.75,2.84 58.88,3.00C49.65,3.14 49.62,3.15 47.91,3.80C43.31,5.56 40.61,8.94 38.50,15.58C38.02,17.09 37.60,17.99 37.42,17.94C37.26,17.89 36.76,16.78 36.32,15.48C34.01,8.69 30.87,5.05 26.22,3.76C23.80,3.09 15.85,3.02 13.41,3.65C10.13,4.49 7.64,6.35 5.62,9.49C3.33,13.02 1.89,17.58 0.89,24.45C0.13,29.64 0.02,28.31 0.01,13.94L0.00,0.00L41.88,0.00L83.75,0.00L83.75,83.50L83.75,167.00L41.88,167.00C0.17,167.00 0.00,167.00 0.00,166.50ZM118.00,131.80C118.00,104.76 118.07,96.53 118.30,96.30C118.52,96.08 120.47,96.00 125.53,96.00C131.50,96.00 132.52,96.05 132.86,96.39C133.21,96.75 133.25,100.31 133.25,131.89L133.25,167.00L125.62,167.00L118.00,167.00L118.00,131.80ZM10.94,140.73C10.53,140.50 10.50,139.82 10.50,132.30C10.50,123.11 10.78,120.26 11.90,117.90C12.68,116.25 14.30,114.71 15.70,114.29C16.42,114.08 22.03,114.00 36.50,114.00C50.97,114.00 56.58,114.08 57.30,114.29C58.70,114.71 60.32,116.25 61.10,117.90C62.22,120.26 62.50,123.11 62.50,132.30C62.50,140.13 62.48,140.49 62.02,140.74C61.35,141.10 11.55,141.09 10.94,140.73ZM118.30,71.70C118.07,71.47 118.00,63.13 118.00,35.70L118.00,0.00L125.62,0.00L133.25,0.00L133.25,35.61C133.25,67.64 133.21,71.25 132.86,71.61C132.52,71.95 131.50,72.00 125.53,72.00C120.47,72.00 118.52,71.92 118.30,71.70ZM10.94,52.73C10.54,52.50 10.50,51.88 10.50,45.43C10.50,35.51 11.01,32.62 13.17,30.24C14.68,28.56 15.97,28.25 21.50,28.25C25.65,28.25 26.40,28.31 27.60,28.76C30.01,29.66 31.37,31.64 32.28,35.54C32.75,37.56 32.84,38.83 32.94,45.02C33.04,51.47 33.01,52.20 32.63,52.58C32.25,52.96 31.23,53.00 21.79,52.99C15.18,52.99 11.22,52.89 10.94,52.73Z"/>
+  <g id="arm" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path id="upper_arm" d="M166,84 L188,84"/>
+    <g id="forearm">
+      <path d="M188,84 L196,52"/>
+      <g id="hand" fill="#fff" stroke="none">
+        <circle cx="197" cy="46" r="8"/>
+        <rect x="188.5" y="30" width="4" height="12" rx="2" transform="rotate(-18 190.5 42)"/>
+        <rect x="193" y="27" width="4" height="13" rx="2" transform="rotate(-6 195 40)"/>
+        <rect x="197.5" y="27" width="4" height="13" rx="2" transform="rotate(6 199.5 40)"/>
+        <rect x="202" y="30" width="4" height="12" rx="2" transform="rotate(18 204 42)"/>
+        <rect x="203" y="45" width="4" height="10" rx="2" transform="rotate(55 205 50)"/>
+      </g>
+    </g>
+  </g>
+  <g id="eye_R">
+    <rect id="eye_R_white" x="13.5" y="31.2" width="16.3" height="18.6" rx="6" fill="#fff"/>
+    <clipPath id="clip_R"><rect x="13.5" y="31.2" width="16.3" height="18.6" rx="6"/></clipPath>
+    <circle id="pupil_R" cx="21.65" cy="40.5" r="5.5" fill="#131314" clip-path="url(#clip_R)"/>
+  </g>
+  <g id="eye_D">
+    <rect id="eye_D_white" x="13.5" y="117" width="45.7" height="20.8" rx="8" fill="#fff"/>
+    <clipPath id="clip_D"><rect x="13.5" y="117" width="45.7" height="20.8" rx="8"/></clipPath>
+    <circle id="pupil_D" cx="36.35" cy="127.4" r="6.5" fill="#131314" clip-path="url(#clip_D)"/>
+  </g>
+  <g id="bubble" aria-hidden="true">
+    <path d="M14,-58 H202 a8,8 0 0 1 8,8 V-24 a8,8 0 0 1 -8,8 H44 L30,-2 L32,-16 H14 a8,8 0 0 1 -8,-8 V-50 a8,8 0 0 1 8,-8 Z" fill="#fcfaf8"/>
+    <text x="108" y="-41" text-anchor="middle">Hei! Etsitään sinulle</text>
+    <text x="108" y="-26" text-anchor="middle">sopiva tuote! 💛</text>
+  </g>
+</svg>
+
+<script>
+  const svg = document.querySelector('svg');
+
+  // Each pupil moves inside its eye white, like xeyes.
+  const eyes = ['R', 'D'].map(id => {
+    const pupil = document.getElementById('pupil_' + id);
+    const b = document.getElementById('eye_' + id + '_white').getBBox();
+    const r = +pupil.getAttribute('r');
+    return { pupil, cx: b.x + b.width / 2, cy: b.y + b.height / 2,
+             rx: b.width / 2 - r - 1, ry: b.height / 2 - r - 1 };
+  });
+
+  function look(clientX, clientY) {
+    const pt = new DOMPoint(clientX, clientY).matrixTransform(svg.getScreenCTM().inverse());
+    for (const e of eyes) {
+      const dx = pt.x - e.cx, dy = pt.y - e.cy;
+      const k = Math.min(1, 1 / (Math.hypot(dx / e.rx, dy / e.ry) || 1));  // stay inside the eye
+      e.pupil.setAttribute('cx', e.cx + dx * k);
+      e.pupil.setAttribute('cy', e.cy + dy * k);
+    }
+  }
+  addEventListener('pointermove', ev => look(ev.clientX, ev.clientY));
+  // Phones have no hover: a tap shows the bubble, the next tap hides it.
+  svg.addEventListener('click', () => svg.classList.toggle('talk'));
+</script>
+</body>
+</html>
