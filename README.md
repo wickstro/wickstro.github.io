@@ -19,3 +19,4 @@ docker-compose down
 ```
 Claude can upload to drhardman.fi
 -Requires rsync
+I also saved the upload steps to my memory, so next time you can just say “update drhardman.fi” and I’ll pull, build, show you a test run and upload once you say go.
