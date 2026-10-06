@@ -17,3 +17,5 @@ docker-compose logs -f
 # stop and remove the container
 docker-compose down
 ```
+Claude can upload to drhardman.fi
+-Requires rsync
