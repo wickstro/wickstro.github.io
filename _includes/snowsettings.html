@@ -22,14 +22,14 @@
 		});
 	});
 </script>
-{% endif %} {% if page.tag == "blue" %}
+{% endif %} {% if page.tag == "blue" %}{% comment %} "blue" snow is now in the beige brand colour ($brand-color) {% endcomment %}
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
 		new Snow("#sitewrapper", {
 			number: 30,
 			r: 3,
 			v: 0.5,
-			color: "rgb(150,193,255)",
+			color: "rgb(224,192,159)",
 			shape: '{{ page.shape | default: "raindrop" }}',
 		});
 	});
