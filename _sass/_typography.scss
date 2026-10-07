@@ -29,22 +29,22 @@ a {
 a:hover {
   text-decoration: none;
   outline: none;
-  color: $blue-color;
+  color: $brand-color;
 }
 
 a:active {
   text-decoration: none;
-  color: $blue-color;
+  color: $brand-color;
 }
 a:focus {
   outline: none;
   text-decoration: none;
-  color: $blue-color;
+  color: $brand-color;
 }
 
 li.active a {
   text-decoration: none;
-  color: $blue-color;
+  color: $brand-color;
 }
 
 li {

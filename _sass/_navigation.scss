@@ -61,12 +61,12 @@
   .sidnavi >li+li:before {
     content: "/";
     display: inline-block;
-    color: $blue-color;
+    color: $brand-color;
     font-weight: 600;
   }
 
   li.active  a {
-    color: $blue-color;
+    color: $brand-color;
     font-weight: 600;
   }
 
@@ -95,13 +95,13 @@
         font-size: $small-font-size;
 
         &:active {
-          color: $blue-color;
+          color: $brand-color;
         }
         &:hover {
-          color: $blue-color;
+          color: $brand-color;
         }
         &:focus {
-          color: $blue-color;
+          color: $brand-color;
           text-decortion: none;
         }
       }
@@ -115,10 +115,10 @@
       color: $dark-color;
     }
     &:hover {
-      color: $blue-color;
+      color: $brand-color;
     }
     &:focus {
-      color: $blue-color;
+      color: $brand-color;
       text-decortion: none;
     }
   }

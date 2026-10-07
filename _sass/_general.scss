@@ -65,7 +65,7 @@ img.img-fluid.small {
 
 button, .button {
   font-family: inherit;
-  border: 2px solid $blue;
+  border: 2px solid $brand-color;
   border-radius: 5px;
   font-weight: 400;
   font-size: 21px;
@@ -78,8 +78,8 @@ button, .button {
   color: $light-color;
 
   &:hover, &:focus {
-  background-color: $blue;
-    color: $light-color;
+  background-color: $brand-color;
+    color: $dark-color; // white is unreadable on beige
     outline: none;
 
   }

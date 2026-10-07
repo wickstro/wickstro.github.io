@@ -27,9 +27,11 @@ $background-color:  #000000;
 $link-color:        #ffffff;
 $light-color:       #fcfaf8;
 $dark-color:        #131314;
-$blue-color:        #96c1ff;
-$blue-color-dark:   #6e99d4;
 $beige:             #e0c09f;
+// Brand colour (headings, menu, divider lines, buttons). Was blue #96c1ff until 2026-10.
+$brand-color:       $beige;
+$brand-color-dark:  #c9a985;
+$blue-color:        #96c1ff;
 $green: rgba(0, 161, 75, 0.6);
 $brown: rgba(140, 113, 93, 0.7);
 $blue: rgba(110, 153, 212, 0.85);
@@ -47,7 +49,7 @@ $light-transparent: rgba(252, 250, 248, 0.71);
 // Colour themes: a page picks one with "theme: <name>" in its front matter.
 // The accent colours fact-box headings, divider lines and plus/minus signs.
 $accent-themes: (
-  "blue":   $blue-color,
+  "blue":   $blue-color, // the former brand blue, available as a page theme
   "yellow": #ffcb05,
   "orange": $light-orange,
   "pink":   #f6adcd,
