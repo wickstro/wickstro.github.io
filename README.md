@@ -17,6 +17,16 @@ docker-compose logs -f
 # stop and remove the container
 docker-compose down
 ```
-Claude can upload to drhardman.fi
--Requires rsync
-I also saved the upload steps to my memory, so next time you can just say “update drhardman.fi” and I’ll pull, build, show you a test run and upload once you say go.
+
+## Deploy to drhardman.fi
+
+```bash
+# get the latest changes
+git pull origin master
+
+# build the site into _site/ (production settings)
+docker-compose run --rm -e JEKYLL_ENV=production jekyll bash -c "bundle install --quiet && bundle exec jekyll build"
+
+# upload _site/ to the server (add --dry-run first to see what would change)
+rsync -rlptzc --delete _site/ lotta@pilvi.jco.fi:/var/www/production/drhardman.fi/
+```
