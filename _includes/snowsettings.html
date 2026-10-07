@@ -34,13 +34,14 @@
 		});
 	});
 </script>
-{% endif %} {% if page.tag == "white" %}
+{% endif %} {% if page.tag == "white" %}{% comment %} "white" snow is the beige brand colour, like the stars {% endcomment %}
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
 		new Snow("#sitewrapper", {
 			number: 45,
 			r: 2,
 			v: 0.6,
+			color: "rgb(224,192,159)",
 			shape: '{{ page.shape | default: "circle" }}',
 		});
 	});
