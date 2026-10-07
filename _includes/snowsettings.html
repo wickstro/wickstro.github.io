@@ -22,14 +22,14 @@
 		});
 	});
 </script>
-{% endif %} {% if page.tag == "blue" %}{% comment %} "blue" snow is now in the beige brand colour ($brand-color) {% endcomment %}
+{% endif %} {% if page.tag == "blue" %}{% comment %} "blue" snow is now in the beige brand colour ($brand-color); a page can set snowcolor to override it {% endcomment %}
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
 		new Snow("#sitewrapper", {
 			number: 30,
 			r: 3,
 			v: 0.5,
-			color: "rgb(224,192,159)",
+			color: "{{ page.snowcolor | default: 'rgb(224,192,159)' }}",
 			shape: '{{ page.shape | default: "raindrop" }}',
 		});
 	});
