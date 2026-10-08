@@ -216,10 +216,10 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
   }
 
   body#page-45::before {
-    background-image: $top-overlay, url('../img/bgs/bermuda.jpg');
+    background-image: url('../img/bgs/bermuda.jpg');
 
      @media screen and (max-width: $mobile) {
-      background-image: $top-overlay, url('../img/bgs/vertical_bermuda.jpg');
+      background-image: url('../img/bgs/vertical_bermuda.jpg');
       background-position: center top;
     }
   }
