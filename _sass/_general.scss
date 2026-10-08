@@ -89,6 +89,12 @@ button, .button {
   }
 }
 
+// SuperQuest (popup and inline) styles its own buttons; the site's margins above
+// pushed the hotspot dots on the hands-and-feet image about 2rem too low
+.jquest-root button {
+  margin: 0;
+}
+
 img.cert {
   max-width: 70%;
   display:block;
