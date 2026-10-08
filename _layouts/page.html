@@ -4,7 +4,7 @@ comments: true
 ---
 <ul class="sidnavi">
     {% if page.type  == "body" and page.title == "Bodybutters" %}
-        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+        <li class="active"><a class="text-capitalize" href="#page-top"> {{ page.type }}</a></li>
      {% endif %}
     {% if page.type  == "body"  and page.title != "Bodybutters" %}
     <li class="listsidnavi"><a class="text-capitalize" href="/body">{{ page.type }}</a></li>
