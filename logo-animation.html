@@ -67,13 +67,32 @@
   </g>
   <g id="bubble" aria-hidden="true">
     <path d="M14,-58 H202 a8,8 0 0 1 8,8 V-24 a8,8 0 0 1 -8,8 H44 L30,-2 L32,-16 H14 a8,8 0 0 1 -8,-8 V-50 a8,8 0 0 1 8,-8 Z" fill="#fcfaf8"/>
-    <text x="108" y="-41" text-anchor="middle">Hei! Etsitään sinulle</text>
-    <text x="108" y="-26" text-anchor="middle">sopiva tuote! 💛</text>
+    <text id="say1" x="108" y="-41" text-anchor="middle">Hei! Etsitään sinulle</text>
+    <text id="say2" x="108" y="-26" text-anchor="middle">sopiva tuote! 💛</text>
   </g>
 </svg>
 
 <script>
   const svg = document.querySelector('svg');
+
+  // Bubble language: ?lang=sv|fi wins; otherwise follow the page the quest is shown on
+  // (the iframe is same-origin, so the referrer is the full page URL): /fi/ pages are
+  // Finnish, other drhardman.fi / wickstro.github.io pages Swedish. Default Finnish
+  // (e.g. in the SuperQuest editor preview).
+  const texts = {
+    fi: ['Hei! Etsitään sinulle', 'sopiva tuote! 💛'],
+    sv: ['Hej! Låt oss hitta', 'din produkt! 💛'],
+  };
+  let lang = new URLSearchParams(location.search).get('lang');
+  if (!texts[lang]) {
+    let ref = null;
+    try { ref = new URL(document.referrer); } catch (e) {}
+    lang = ref && /(^|\.)(drhardman\.fi|wickstro\.github\.io|localhost)$/.test(ref.hostname)
+      && !ref.pathname.startsWith('/fi/') ? 'sv' : 'fi';
+  }
+  document.documentElement.lang = lang;
+  document.getElementById('say1').textContent = texts[lang][0];
+  document.getElementById('say2').textContent = texts[lang][1];
 
   // Each pupil moves inside its eye white, like xeyes.
   const eyes = ['R', 'D'].map(id => {
