@@ -280,11 +280,12 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
 
+  // No 67 Clay Mask: calm water for now (was the No 10 stairs); a cracked-clay photo would suit it better
   body#page-67::before {
-    background-image: url('../img/bgs/trappa2.jpg');
+    background-image: url('../img/bgs/water.jpg');
    
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_trappa2.jpg');
+      background-image: url('../img/bgs/vertical_water.jpg');
       background-position: center top;
     }
   }
