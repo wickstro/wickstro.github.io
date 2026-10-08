@@ -17,10 +17,14 @@
   </div>
 </footer>
 
+{% comment %} The quest is Finnish only for now: Swedish pages get no popup until a Swedish quest exists. {% endcomment %}
+{% assign url_lang = page.url | slice: 0, 4 %}
+{% if url_lang == "/fi/" %}
 <!-- SuperQuest: Dr Hardman product finder (popup) -->
 <script data-cookieconsent="ignore" src="https://files.jquest.fi/jquest/v2/jquest-loader.js" type="module"></script>
 {% unless page.url == "/fi/" or page.no_quest %}{% comment %} The Finnish front page shows the quest inline instead (fi/index.html). {% endcomment %}
 <div class="jquest-app" data-version="v2" data-new-styles="true" data-org-id="chh0Dqo1YFVDij1LVePO" data-game-id="zca5EnAXDo5L4LjpwPcR"></div>
 {% endunless %}
+{% endif %}
 {% comment %} Animated DRH logo launcher, hidden for now; SuperQuest shows its own popup button. {% endcomment %}
 {% comment %}{% include quest-launcher.html %}{% endcomment %}
