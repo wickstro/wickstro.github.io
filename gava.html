@@ -1,0 +1,58 @@
+---
+layout: default
+id: page-1
+tag: none
+title: Gåva
+permalink: /gava/
+no_quest: true
+sitemap: false
+---
+{% comment %}
+  Coupon page for the Swedish product-finder games: the QR codes in img/qr/gava-<no>.png
+  point here with ?t=<product number>. Shows the 15 % discount for that product.
+  Finnish version: fi/lahja.html
+{% endcomment %}
+<section class="dubbelpadding sloganbox">
+    <h1 class="slogan text-center">En gåva <br>till dig!</h1>
+</section>
+
+<section class="dubbelpadding grey text-center" id="gava">
+    <h2 class="h1" id="gava-rabatt">-15 %</h2>
+    <p id="gava-produkt">Okänd kod.</p>
+    <p class="h4" id="gava-kod"></p>
+    <p>Rabatten gäller en produkt. Skicka QR-koden eller koden med din beställning till
+        <a href="mailto:lotta.hardman@gmail.com?subject=Best%C3%A4llning%20med%20presentkod">lotta.hardman@gmail.com</a>
+        eller visa den när du handlar.</p>
+</section>
+
+<script>
+  (function () {
+    var products = {
+      '10': ['No 10 Pit Stop Regular deodorant', '/no10-pitstopregular/'],
+      '22': ['No 22 Calming Shea Butter', '/no22-sheabodybutter/'],
+      '23': ['No 23 Citrus Body Butter', '/no23-citrusbodybutter/'],
+      '24': ['No 24 Cocoa Body Butter', '/no24-cocoabodybutter/'],
+      '25': ['No 25 Mango Body Butter', '/no25-mangobodybutter/'],
+      '26': ['No 26 Rose Body Butter', '/no26-rosebodybutter/'],
+      '30': ['No 30 Clarified Face Oil', '/no30-clarified/'],
+      '31': ['No 31 Youthful Glow Face Oil', '/no31-youthfulglow/'],
+      '32': ['No 32 Serendipity Face Oil', '/no32-serendipity/'],
+      '44': ['No 44 Age Defence Cream', '/no44-agedefencecream/'],
+      '45': ['No 45 Monoi Lotion', '/no45-monoilotion/'],
+      '67': ['No 67 Cleansing and Hydrating Clay Mask', '/no67-cleansing-and-hydrating-face-mask/'],
+      '80': ['No 80 Gentle Face Wash Powder', '/no80-gentle-face-wash-powder/'],
+      '81': ['No 81 Lux Soap', '/no81-lux-soap/'],
+      '93': ['No 93 Hydrating Face Mist', '/no93-hydrating-face-mist/']
+    };
+    var t = new URLSearchParams(location.search).get('t');
+    var p = products[t];
+    if (!p) return;
+    var produkt = document.getElementById('gava-produkt');
+    produkt.textContent = '';
+    var a = document.createElement('a');
+    a.href = p[1];
+    a.textContent = p[0];
+    produkt.append('rabatt på ', a);
+    document.getElementById('gava-kod').textContent = 'Kod: GAVA15-' + t;
+  })();
+</script>
