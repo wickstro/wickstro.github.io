@@ -124,3 +124,10 @@
   width: fit-content;
   transform: rotate(-3deg) skewX(-6deg);
 }
+
+// INCI list under the ingredients (products with essential oils): the official ingredient
+// names, a little smaller so it reads as the technical detail it is
+p.inci {
+  font-size: $small-font-size;
+  line-height: 1.5;
+}
