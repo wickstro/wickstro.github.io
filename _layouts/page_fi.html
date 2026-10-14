@@ -16,14 +16,16 @@ comments: true
   {% when "masks and mists" %}{% assign crumb = "Naamiot & kasvovedet" %}{% assign crumb_url = "/fi/masks-and-mists" %}
   {% else %}{% assign crumb = nil %}
 {% endcase %}
+<nav aria-label="Olet tässä">
 <ul class="sidnavi">
     {% if crumb %}
         {% unless page.category %}
         <li class="listsidnavi"><a href="{{ crumb_url }}">{{ crumb }}</a></li>
         {% endunless %}
-        <li class="active"><a href="#page-top"> {{ page.title }}</a></li>
+        <li class="active"><a href="#page-top" aria-current="page"> {{ page.title }}</a></li>
     {% endif %}
 </ul>
+</nav>
 <main>
     {{ content }}
     {% comment %}Hidden for now, like on the Swedish pages — may come back.{% endcomment %}

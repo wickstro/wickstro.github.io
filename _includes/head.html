@@ -1,7 +1,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tuoreita luonnonmukaisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita. / Färska naturliga hud- och hårvårds&shy;produkter utan onödig kemikalie&shy;belastning." />
   <meta property="og:url"                content="http://drhardman.fi" />
   <meta property="og:type"               content="product.group" />
@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="Tuoreita luonnonmukaisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita. / Färska naturliga hud- och hårvårds&shy;produkter utan onödig kemikalie&shy;belastning.">
   <meta name="twitter:image" content="http://drhardman.fi/img/facebooknosto.jpg">
 
-  <title>Dr Hardman</title>
+  <title>{% if page.title and page.title != "Dr Hardman" %}{{ page.title }} – Dr Hardman{% else %}Dr Hardman{% endif %}</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

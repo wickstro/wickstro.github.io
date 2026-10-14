@@ -22,13 +22,16 @@
   .logonamn img.logonamnimg {
     max-width: 40px;
     padding-bottom: $base-padding;
+  }
+  // Hide the whole link (not just its image) where the name logo isn't shown,
+  // so no empty, unnamed link is left for keyboard and screen-reader users
+  a.logonamn {
     @media (max-width: $mobile) {
       display: none;
     }
     @media (max-height: 500px) {
       display: none;
     }
-
   }
   a.namn {
     display: none;
@@ -48,6 +51,10 @@
     padding-top: $spacing-unit;
     @media(max-width: $mobile) {
       padding-top: $base-padding;
+    }
+    // Tap targets need 24px each; the rows were 23.5px, so this adds half a pixel per row
+    li.nav-item {
+      min-height: 24px;
     }
     li.nav-item a {
       font-size: $small-font-size;

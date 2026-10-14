@@ -47,8 +47,10 @@
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+/* Do an horizontal flip when you move the mouse over the flip box container,
+   or tab to its link with the keyboard (the link sits on the back side) */
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
   transform: rotateY(180deg);
 }
 

@@ -103,3 +103,13 @@ img.cert {
     max-width: 100%;
   }
 }
+
+// Keyboard focus: a clear beige ring on everything you can tab to (the rules above and in
+// _typography remove the browser's own outline). Mouse clicks don't show it, only the keyboard.
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid $brand-color;
+  outline-offset: 3px;
+}
