@@ -1,0 +1,21 @@
+{% comment %}
+  Newsletter section under the page content (both default layouts), only on pages with
+  "newsletter: true" in the front matter: the two front pages and the collection pages.
+{% endcomment %}
+{% if page.newsletter %}
+{% assign nl_section_lang = page.url | slice: 0, 4 %}
+<section class="padding grey newsletter-section" id="nyhetsbrev">
+  <div class="padding">
+  {% if nl_section_lang == "/fi/" %}
+    <h2>Uutiskirje</h2>
+    <hr class="primary" />
+    <p>Kaikki Dr Hardmanin tuotteet eivät ole saatavilla koko ajan. Jätä sähköpostiosoitteesi tähän, niin saat kaksi kertaa vuodessa listan ajankohtaisista tuotteista ja hinnoista.</p>
+  {% else %}
+    <h2>Nyhetsbrev</h2>
+    <hr class="primary" />
+    <p>Alla Dr Hardmans produkter finns inte tillgängliga hela tiden. Meddela mig din e-post här, så får du två gånger om året en lista med aktuella produkter och priser.</p>
+  {% endif %}
+    {% include newsletter-form.html %}
+  </div>
+</section>
+{% endif %}

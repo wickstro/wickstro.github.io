@@ -1,0 +1,28 @@
+{% comment %}
+  Newsletter signup (Campaign Monitor). Same logic as the lohko/newsletter-form block in
+  chefsdagarna: Campaign Monitor's script finds the form by its js-cm-form class, fetches a
+  signed subscribe URL for data-id and submits there. The action URL is only a fallback.
+
+  Two lists: Finnish form on /fi/ pages, Swedish form everywhere else.
+  From each list's copy-paste embed code in Campaign Monitor, paste in:
+    - data-id on the form       (the long ID on the embed's <form>)
+    - name on the email field   (the embed's email input name, e.g. cm-xxxxx-xxxxx)
+  Usage: {% raw %}{% include newsletter-form.html %}{% endraw %}
+{% endcomment %}
+{% assign nl_lang = page.url | slice: 0, 4 %}
+<div class="newsletter-form">
+{% if nl_lang == "/fi/" %}
+  <form class="newsletter-form__form js-cm-form" method="post" action="https://www.createsend.com/t/subscribeerror?description=" data-id="PASTE-FI-CM-FORM-ID">
+    <label class="visually-hidden" for="newsletter-email">Sähköpostiosoite</label>
+    <input id="newsletter-email" class="newsletter-form__input js-cm-email-input" type="email" name="PASTE-FI-CM-EMAIL-FIELD-NAME" placeholder="Sähköpostiosoitteesi" autocomplete="email" required>
+    <button class="newsletter-form__button" type="submit">Pidä minut ajan tasalla</button>
+  </form>
+{% else %}
+  <form class="newsletter-form__form js-cm-form" method="post" action="https://www.createsend.com/t/subscribeerror?description=" data-id="PASTE-SV-CM-FORM-ID">
+    <label class="visually-hidden" for="newsletter-email">E-postadress</label>
+    <input id="newsletter-email" class="newsletter-form__input js-cm-email-input" type="email" name="PASTE-SV-CM-EMAIL-FIELD-NAME" placeholder="Din e-postadress" autocomplete="email" required>
+    <button class="newsletter-form__button" type="submit">Håll mig uppdaterad</button>
+  </form>
+{% endif %}
+</div>
+<script src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js" defer></script>

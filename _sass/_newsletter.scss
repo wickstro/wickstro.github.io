@@ -1,0 +1,80 @@
+@use "variables" as *;
+
+// Newsletter signup form (_includes/newsletter-form.html), adapted from the lohko block in
+// chefsdagarna. Field and button sit on one row while the field is at least as wide as the
+// button; on narrow screens the button wraps below and both go full width.
+
+.newsletter-form {
+  max-width: 40rem;
+  margin: 0; // left-aligned with the heading and text above
+
+  .newsletter-form__form {
+    --newsletter-gap: 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--newsletter-gap);
+    padding: 8px;
+    border-radius: 12px;
+    background-color: rgba(36, 39, 41, 0.87);
+    border: 1px solid rgba(224, 192, 159, 0.35);
+
+    &:focus-within {
+      border-color: $brand-color;
+      outline: 2px solid $brand-color;
+      outline-offset: 2px;
+    }
+  }
+
+  .newsletter-form__input {
+    flex: 999 1 0;
+    min-width: calc(50% - var(--newsletter-gap) / 2);
+    min-height: 48px;
+    padding: 0 16px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: $light-color;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 400;
+
+    &::placeholder {
+      color: $text-color;
+      opacity: 1;
+    }
+  }
+
+  // The site's button style adds big top/bottom margins; inside the form the gap does the spacing
+  .newsletter-form__button {
+    flex: 1 0 auto;
+    margin: 0;
+    min-height: 48px;
+    padding: 0 1.5em;
+    border-radius: 12px;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $brand-color;
+    color: $dark-color;
+
+    // Lighter beige on hover (same as the quest buttons' hover)
+    &:hover,
+    &:focus {
+      background-color: #ecd2b6;
+      color: $dark-color;
+    }
+  }
+}
+
+// Text for screen readers only (used by the form's label)
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
