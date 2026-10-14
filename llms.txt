@@ -1,0 +1,33 @@
+---
+layout: null
+sitemap: false
+---
+# Dr Hardman
+
+> Fresh, natural skin and hair care handmade in Finland by Dr Lotta Hardman (PhD in genetics and population biology). No preservatives, no emulsifiers, no aluminium – raw shea butter, cocoa butter, oils, aloe vera and clay. Slogan: "Clean food for healthy skin". The site is in Swedish (main) and Finnish (/fi/).
+
+Orders by email: {{ site.email }}. Prices are listed on each product page.
+
+## Collections (Swedish)
+{%- assign collections = "body,face,hands-and-feet,hair,hygiene" | split: "," %}
+{%- for c in collections %}
+{%- capture curl %}/{{ c }}/{% endcapture %}
+{%- assign cp = site.pages | where: "url", curl | first %}
+- [{{ cp.title }}]({{ cp.url | absolute_url }})
+{%- endfor %}
+
+## Products (Swedish)
+{%- assign products = site.pages | where_exp: "p", "p.ref contains 'no'" | where_exp: "p", "p.ref.size <= 4" | where_exp: "p", "p.ref != 'none'" | sort: "ref" %}
+{%- for p in products %}{% unless p.url contains '/fi/' or p.published == false or p.sitemap == false %}
+- [No {{ p.ref | remove: "no" }} {{ p.title | remove: "No44 " }}]({{ p.url | absolute_url }})
+{%- endunless %}{% endfor %}
+
+## Finnish pages
+- [Etusivu]({{ "/fi/" | absolute_url }})
+{%- for p in products %}{% if p.url contains '/fi/' and p.sitemap != false %}
+- [No {{ p.ref | remove: "no" }} {{ p.title | remove: "No44 " }}]({{ p.url | absolute_url }})
+{%- endif %}{% endfor %}
+
+## About
+- [Bra att veta – about Dr Lotta Hardman and the ingredients]({{ "/braattveta/" | absolute_url }})
+- [Hyvä tietää]({{ "/fi/hyvatietaa/" | absolute_url }})

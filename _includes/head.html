@@ -2,18 +2,44 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tuoreita luonnonmukaisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita. / Färska naturliga hud- och hårvårds&shy;produkter utan onödig kemikalie&shy;belastning." />
-  <meta property="og:url"                content="http://drhardman.fi" />
-  <meta property="og:type"               content="product.group" />
-  <meta property="og:title"              content="Dr Hardman" />
-  <meta property="og:description"        content="Tuoreita luonnonmukaisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita. / Färska naturliga hud- och hårvårds&shy;produkter utan onödig kemikalie&shy;belastning." />
-  <meta property="og:image"              content="http://drhardman.fi/img/facebooknosto.jpg" />
+  {%- comment %}
+    Search and share tags, per page and per language. A page can set its own
+    "description:" in the front matter. Product pages (ref no10, no22 …) share their
+    product picture (the first image on the page); other pages share img/share/dr-hardman.jpg.
+  {% endcomment -%}
+  {%- assign meta_lang = page.url | slice: 0, 4 -%}
+  {%- if meta_lang == "/fi/" -%}
+    {%- assign meta_desc = page.description | default: "Tuoreita, luonnonmukaisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita. Käsintehty Suomessa." -%}
+    {%- assign meta_locale = "fi_FI" -%}
+  {%- else -%}
+    {%- assign meta_desc = page.description | default: "Färska, naturliga hud- och hårvårdsprodukter utan konserverings- och emulgeringsmedel. Handgjort i Finland." -%}
+    {%- assign meta_locale = "sv_FI" -%}
+  {%- endif -%}
+  {%- if page.title and page.title != "Dr Hardman" -%}
+    {%- capture meta_title %}{{ page.title }} – Dr Hardman{% endcapture -%}
+  {%- else -%}
+    {%- assign meta_title = "Dr Hardman – Clean food for healthy skin" -%}
+  {%- endif -%}
+  {%- assign meta_image = "/img/share/dr-hardman.jpg" -%}
+  {%- assign ref_start = page.ref | slice: 0, 2 -%}
+  {%- if ref_start == "no" and page.ref != "none" and content contains '<img' -%}
+    {%- assign meta_image = content | split: '<img' | slice: 1, 1 | first | split: 'src="' | slice: 1, 1 | first | split: '"' | first -%}
+  {%- endif %}
+  <meta name="description" content="{{ meta_desc | strip_html | escape }}" />
+  <meta property="og:site_name"          content="Dr Hardman" />
+  <meta property="og:url"                content="{{ page.url | absolute_url }}" />
+  <meta property="og:type"               content="website" />
+  <meta property="og:locale"             content="{{ meta_locale }}" />
+  <meta property="og:title"              content="{{ meta_title | strip | escape }}" />
+  <meta property="og:description"        content="{{ meta_desc | strip_html | escape }}" />
+  <meta property="og:image"              content="{{ meta_image | absolute_url }}" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@LottaHardman">
   <meta name="twitter:creator" content="@LottaHardman">
-  <meta name="twitter:title" content="DR HARDMAN Clean food for healthy skin!">
-  <meta name="twitter:description" content="Tuoreita luonnonmukaisia ihon- ja hiustenhoitotuotteita ilman säilöntä- ja emulgointiaineita. / Färska naturliga hud- och hårvårds&shy;produkter utan onödig kemikalie&shy;belastning.">
-  <meta name="twitter:image" content="http://drhardman.fi/img/facebooknosto.jpg">
+  <meta name="twitter:title" content="{{ meta_title | strip | escape }}">
+  <meta name="twitter:description" content="{{ meta_desc | strip_html | escape }}">
+  <meta name="twitter:image" content="{{ meta_image | absolute_url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   <title>{% if page.title and page.title != "Dr Hardman" %}{{ page.title }} – Dr Hardman{% else %}Dr Hardman{% endif %}</title>
 
