@@ -266,6 +266,11 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
   // No 57 Shampoo Bar Forest: arms wide in a sunlit forest (1857643, Pixabay)
+  body#page-57 .sloganbox .slogan {
+    @media (max-width: $mobile) {
+      font-size: 2rem;
+    }
+  }
   body#page-57::before {
     background-image: url('../img/bgs/forestman.jpg');
     background-position: center top;
