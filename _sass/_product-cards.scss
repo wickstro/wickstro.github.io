@@ -170,6 +170,24 @@ background-color: $yellow;
 .flip-card-front.fifty6 {
 background-color: $pink;
 }
+.flip-card-front.fifty7, .card.fifty7 {
+background-color: $green;
+&:hover {
+  background-color: rgba(0, 161, 75, 0.8);
+}
+}
+// No 57 has no product photo yet, so its single-page card shows text on both sides
+.flip-card-back.fifty7 {
+background-color: $green;
+border-radius: 6px;
+display: flex;
+align-items: center;
+justify-content: center;
+p {
+  color: $link-color;
+  font-size: 1.5rem;
+}
+}
 .flip-card-front.sixty6 {
 background-color: $red;
 }

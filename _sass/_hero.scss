@@ -265,6 +265,13 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
       background-position: center top;
     }
   }
+  // No 57 Shampoo Bar Forest: the brook from No 81 Lux Soap
+  body#page-57::before {
+    background-image: url('../img/bgs/brook.jpg');
+     @media screen and (max-width: $mobile) {
+      background-position: center top;
+    }
+  }
   body#page-56::before {
     background-image: url('../img/bgs/aloe.jpg');
    
