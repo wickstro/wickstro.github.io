@@ -265,12 +265,12 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
       background-position: center top;
     }
   }
-  // No 57 Shampoo Bar Forest: a bearded man who needs a wash (Sammy-Sander, Pixabay)
+  // No 57 Shampoo Bar Forest: a bearded man in the shower (olichel, Pixabay)
   body#page-57::before {
-    background-image: url('../img/bgs/beardman.jpg');
+    background-image: url('../img/bgs/showerman.jpg');
     background-position: center top;
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_beardman.jpg');
+      background-image: url('../img/bgs/vertical_showerman.jpg');
     }
   }
   body#page-56::before {
