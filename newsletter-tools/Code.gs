@@ -157,5 +157,5 @@ function toPlainText_(html) {
 
 function decode_(s) {
   return s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&ndash;/g, '–').replace(/&euro;/g, '€');
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&ndash;/g, '–').replace(/&euro;/g, '€').replace(/&middot;/g, '·');
 }

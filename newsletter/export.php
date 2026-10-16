@@ -13,6 +13,13 @@ if (strlen($key) < 20 || !hash_equals($key, (string) ($_GET['key'] ?? ''))) {
     exit;
 }
 
+// Runs the one-year cleanup of unsubscribed addresses (in nl_update_list) before every send
+try {
+    nl_update_list(fn (array &$rows): bool => false);
+} catch (Throwable $e) {
+    error_log('newsletter export cleanup: ' . $e->getMessage());
+}
+
 header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="drhardman-newsletter.csv"');
 header('Cache-Control: no-store');

@@ -12,6 +12,8 @@
               Bank: OKOYFIHH<br>
               FI9855496620063937<br>-->
               </p>
+              {% assign footer_lang = page.url | slice: 0, 4 %}
+              <p class="privacy-link">{% if footer_lang == "/fi/" %}<a href="/fi/tietosuoja/">Tietosuoja</a>{% else %}<a href="/dataskydd/">Dataskydd</a>{% endif %}</p>
       </div>
 
   </div>

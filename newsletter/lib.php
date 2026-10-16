@@ -67,7 +67,16 @@ function nl_update_list(callable $fn): void
     try {
         flock($fh, LOCK_EX);
         $rows = nl_read_rows($fh);
-        if ($fn($rows)) {
+        $changed = $fn($rows);
+        // Privacy notice (dataskydd/tietosuoja): unsubscribed addresses are kept one year, then deleted
+        $cutoff = gmdate('Y-m-d H:i:s', time() - 365 * 86400);
+        foreach ($rows as $email => $row) {
+            if ($row['status'] === 'unsubscribed' && $row['updated'] < $cutoff) {
+                unset($rows[$email]);
+                $changed = true;
+            }
+        }
+        if ($changed) {
             ftruncate($fh, 0);
             rewind($fh);
             fputcsv($fh, NL_COLUMNS, ',', '"', '');
