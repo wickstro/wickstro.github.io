@@ -120,8 +120,13 @@ function nl_page(string $lang, string $title, string $body): void
     echo '<!DOCTYPE html><html lang="' . $lang . '"><head><meta charset="utf-8">'
         . '<meta name="viewport" content="width=device-width, initial-scale=1">'
         . '<meta name="robots" content="noindex"><title>' . htmlspecialchars($title) . ' – Dr Hardman</title>'
+        // Same fonts and heading style as the site (_includes/head.html, _sass/_typography.scss)
+        . '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+        . '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300..700&display=swap">'
         . '<style>body{margin:0;background:#131314;color:#c6c4c1;font:300 1.2rem/1.4 "Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif}'
-        . 'main{max-width:36rem;margin:0 auto;padding:4rem 2rem}h1{color:#e0c09f;font-weight:400}a{color:#fff}'
+        . 'main{max-width:36rem;margin:0 auto;padding:4rem 2rem}'
+        . 'h1{margin:0 0 1rem;padding-bottom:1rem;border-bottom:1px solid #e0c09f;font:400 3rem/1.1 "Bebas Neue","Arial Narrow",sans-serif;letter-spacing:4px;text-transform:uppercase;color:#fff}'
+        . 'a{color:#fff}'
         . 'button{font:inherit;font-weight:400;min-height:48px;padding:0 1.5em;border:0;border-radius:12px;background:#e0c09f;color:#131314;cursor:pointer}'
         . 'button:hover,button:focus{background:#ecd2b6}</style></head><body><main>'
         . '<h1>' . htmlspecialchars($title) . '</h1>' . $body
