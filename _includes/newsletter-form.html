@@ -1,28 +1,49 @@
 {% comment %}
-  Newsletter signup (Campaign Monitor). Same logic as the lohko/newsletter-form block in
-  chefsdagarna: Campaign Monitor's script finds the form by its js-cm-form class, fetches a
-  signed subscribe URL for data-id and submits there. The action URL is only a fallback.
+  Newsletter signup. Posts to newsletter/subscribe.php on drhardman.fi (also from the
+  wickstro.github.io sandbox, which can't run PHP), which stores the address in the list
+  outside the web root and sends the visitor back here with ?nl=ok|invalid|error#nyhetsbrev.
+  The small script below shows the matching message. The "website" field is a honeypot
+  for bots (hidden from people and screen readers).
 
-  Two lists: Finnish form on /fi/ pages, Swedish form everywhere else.
-  From each list's copy-paste embed code in Campaign Monitor, paste in:
-    - data-id on the form       (the long ID on the embed's <form>)
-    - name on the email field   (the embed's email input name, e.g. cm-xxxxx-xxxxx)
+  Finnish form on /fi/ pages, Swedish form everywhere else; the language goes with the address.
   Usage: {% raw %}{% include newsletter-form.html %}{% endraw %}
 {% endcomment %}
 {% assign nl_lang = page.url | slice: 0, 4 %}
 <div class="newsletter-form">
+  <form class="newsletter-form__form" method="post" action="{{ site.newsletter_endpoint }}">
 {% if nl_lang == "/fi/" %}
-  <form class="newsletter-form__form js-cm-form" method="post" action="https://www.createsend.com/t/subscribeerror?description=" data-id="PASTE-FI-CM-FORM-ID">
+    <input type="hidden" name="lang" value="fi">
     <label class="visually-hidden" for="newsletter-email">Sähköpostiosoite</label>
-    <input id="newsletter-email" class="newsletter-form__input js-cm-email-input" type="email" name="PASTE-FI-CM-EMAIL-FIELD-NAME" placeholder="Sähköpostiosoitteesi" autocomplete="email" required>
+    <input id="newsletter-email" class="newsletter-form__input" type="email" name="email" placeholder="Sähköpostiosoitteesi" autocomplete="email" required>
     <button class="newsletter-form__button" type="submit">Pidä minut ajan tasalla</button>
-  </form>
 {% else %}
-  <form class="newsletter-form__form js-cm-form" method="post" action="https://www.createsend.com/t/subscribeerror?description=" data-id="PASTE-SV-CM-FORM-ID">
+    <input type="hidden" name="lang" value="sv">
     <label class="visually-hidden" for="newsletter-email">E-postadress</label>
-    <input id="newsletter-email" class="newsletter-form__input js-cm-email-input" type="email" name="PASTE-SV-CM-EMAIL-FIELD-NAME" placeholder="Din e-postadress" autocomplete="email" required>
+    <input id="newsletter-email" class="newsletter-form__input" type="email" name="email" placeholder="Din e-postadress" autocomplete="email" required>
     <button class="newsletter-form__button" type="submit">Håll mig uppdaterad</button>
+{% endif %}
+    <input type="hidden" name="back" value="{{ page.url }}">
+    <div class="newsletter-form__trap" aria-hidden="true">
+      <label for="newsletter-website">Website</label>
+      <input id="newsletter-website" type="text" name="website" tabindex="-1" autocomplete="off">
+    </div>
   </form>
+{% if nl_lang == "/fi/" %}
+  <p class="newsletter-form__status" role="status" data-nl="ok" hidden>Kiitos! Olet nyt uutiskirjeen tilaaja.</p>
+  <p class="newsletter-form__status" role="status" data-nl="invalid" hidden>Tarkista sähköpostiosoite ja yritä uudelleen.</p>
+  <p class="newsletter-form__status" role="status" data-nl="error" hidden>Jotain meni pieleen. Yritä hetken päästä uudelleen tai lähetä viesti osoitteeseen <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  <p class="newsletter-form__privacy"><small>Käytämme osoitettasi vain uutiskirjeen lähettämiseen. Voit perua tilauksen jokaisen kirjeen lopussa olevasta linkistä.</small></p>
+{% else %}
+  <p class="newsletter-form__status" role="status" data-nl="ok" hidden>Tack! Du prenumererar nu på nyhetsbrevet.</p>
+  <p class="newsletter-form__status" role="status" data-nl="invalid" hidden>Kontrollera e-postadressen och försök igen.</p>
+  <p class="newsletter-form__status" role="status" data-nl="error" hidden>Något gick fel. Försök igen om en stund eller skicka e-post till <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  <p class="newsletter-form__privacy"><small>Vi använder din adress bara för nyhetsbrevet. Du kan avsluta prenumerationen via länken i varje brev.</small></p>
 {% endif %}
 </div>
-<script src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js" defer></script>
+<script>
+  (function () {
+    var status = new URLSearchParams(location.search).get("nl");
+    var message = status && document.querySelector('.newsletter-form__status[data-nl="' + status.replace(/[^a-z]/g, "") + '"]');
+    if (message) message.hidden = false;
+  })();
+</script>

@@ -30,3 +30,7 @@ docker-compose run --rm -e JEKYLL_ENV=production jekyll bash -c "bundle install 
 # upload _site/ to the server (add --dry-run first to see what would change)
 rsync -rlptzc --delete _site/ lotta@pilvi.jco.fi:/var/www/production/drhardman.fi/
 ```
+
+The newsletter signup (`newsletter/*.php`) keeps its list outside the site folder, in
+`/var/www/production/drhardman-newsletter/`, so `--delete` never removes it. Setup and sending:
+`newsletter-tools/README.md`.

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The title is the subject line of the email -->
+<title>Dr Hardman: syksyn tuotteet ja hinnat</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4efe9;">
+<!-- Email layout: tables and inline styles, because mail programs ignore most CSS.
+     Edit the texts and the product rows; keep the unsubscribe link at the bottom. -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4efe9;">
+  <tr>
+    <td align="center" style="padding:24px 12px;">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#ffffff;border-radius:12px;overflow:hidden;">
+
+        <!-- Header -->
+        <tr>
+          <td align="center" style="background-color:#131314;padding:28px 24px;">
+            <a href="https://drhardman.fi/fi/"><img src="https://drhardman.fi/img/DRH_logo_invert.png" width="86" height="80" alt="Dr Hardman" style="display:block;border:0;"></a>
+            <p style="margin:14px 0 0;font-family:Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:2px;color:#e0c09f;">CLEAN FOOD FOR HEALTHY SKIN</p>
+          </td>
+        </tr>
+
+        <!-- Greeting -->
+        <tr>
+          <td style="padding:32px 32px 8px;font-family:Helvetica,Arial,sans-serif;font-size:17px;line-height:1.5;color:#131314;">
+            <h1 style="margin:0 0 16px;font-size:26px;font-weight:bold;color:#131314;">Hei!</h1>
+            <p style="margin:0 0 16px;">Tässä Dr Hardmanin ajankohtaiset tuotteet ja hinnat. Kaikki tuotteet tehdään pieninä erinä tuoreista raaka-aineista, ilman säilöntä- ja emulgointiaineita.</p>
+          </td>
+        </tr>
+
+        <!-- Products: copy a row for each product -->
+        <tr>
+          <td style="padding:8px 32px 24px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;color:#131314;">
+              <tr>
+                <td style="padding:12px 0;border-bottom:1px solid #e0c09f;"><a href="https://drhardman.fi/fi/no25-mango-body-butter/" style="color:#131314;font-weight:bold;text-decoration:none;">No 25 Mango Body Butter</a><br><span style="color:#6b6560;font-size:14px;">Kosteuttaa ja rauhoittaa ihoa auringon jälkeen</span></td>
+                <td align="right" style="padding:12px 0;border-bottom:1px solid #e0c09f;white-space:nowrap;">15,00 €</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 0;border-bottom:1px solid #e0c09f;"><a href="https://drhardman.fi/fi/no55-shampoobar/" style="color:#131314;font-weight:bold;text-decoration:none;">No 55 Shampoo Bar Citrus</a><br><span style="color:#6b6560;font-size:14px;">Tekee hiuksista ilmavat ja kevyet</span></td>
+                <td align="right" style="padding:12px 0;border-bottom:1px solid #e0c09f;white-space:nowrap;">10,00 €</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 0;border-bottom:1px solid #e0c09f;"><a href="https://drhardman.fi/fi/no70-lipbalm/" style="color:#131314;font-weight:bold;text-decoration:none;">No 70 Vanilla-Choko Lip Balm</a><br><span style="color:#6b6560;font-size:14px;">Koko perheen suosikki</span></td>
+                <td align="right" style="padding:12px 0;border-bottom:1px solid #e0c09f;white-space:nowrap;">4,00 €</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- How to order + button -->
+        <tr>
+          <td style="padding:0 32px 32px;font-family:Helvetica,Arial,sans-serif;font-size:17px;line-height:1.5;color:#131314;">
+            <p style="margin:0 0 24px;">Tilaa vastaamalla tähän viestiin tai osoitteeseen <a href="mailto:lotta.hardman@gmail.com" style="color:#131314;">lotta.hardman@gmail.com</a>.</p>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background-color:#e0c09f;border-radius:12px;">
+                  <a href="https://drhardman.fi/fi/" style="display:inline-block;padding:14px 28px;font-family:Helvetica,Arial,sans-serif;font-size:17px;font-weight:bold;color:#131314;text-decoration:none;">Katso kaikki tuotteet</a>
+                </td>
+              </tr>
+            </table>
+            <p style="margin:28px 0 0;">Lämpimin terveisin<br>Lotta Hardman</p>
+          </td>
+        </tr>
+
+        <!-- Footer with unsubscribe link (required) -->
+        <tr>
+          <td style="background-color:#131314;padding:20px 32px;font-family:Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#c6c4c1;">
+            Saat tämän viestin, koska tilasit Dr Hardmanin uutiskirjeen osoitteessa drhardman.fi.<br>
+            <a href="<?= unsubscribeUrl ?>" style="color:#e0c09f;">Peru uutiskirjeen tilaus</a>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -64,6 +64,26 @@
       color: $dark-color;
     }
   }
+
+  // Thank-you / error message after sending (shown by the script in newsletter-form.html)
+  .newsletter-form__status {
+    margin: 1rem 0 0;
+    font-weight: 400;
+    color: $light-color;
+  }
+
+  .newsletter-form__privacy {
+    margin: 0.75rem 0 0;
+  }
+
+  // Honeypot field for bots, off screen for people
+  .newsletter-form__trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 }
 
 // Text for screen readers only (used by the form's label)

@@ -25,6 +25,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://drhardman.fi" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  wickstro
+# Newsletter signup form posts here (newsletter/subscribe.php runs only on drhardman.fi)
+newsletter_endpoint: "https://drhardman.fi/newsletter/subscribe.php"
 permalink: pretty
 
 
@@ -42,6 +44,10 @@ markdown: kramdown
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
+exclude:
+  - newsletter-tools/   # Google Sheet script and email templates, not part of the site
+  - README.md
+  - docker-compose.yml
 # exclude:
 #   - .sass-cache/
 #   - .jekyll-cache/
