@@ -32,5 +32,5 @@ rsync -rlptzc --delete _site/ lotta@pilvi.jco.fi:/var/www/production/drhardman.f
 ```
 
 The newsletter signup (`newsletter/*.php`) keeps its list outside the site folder, in
-`/var/www/production/drhardman-newsletter/`, so `--delete` never removes it. Setup and sending:
+`~/drhardman-newsletter/` on the server, so `--delete` never removes it. Setup and sending:
 `newsletter-tools/README.md`.

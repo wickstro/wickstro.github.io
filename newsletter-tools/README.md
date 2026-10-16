@@ -6,8 +6,9 @@ How it fits together:
    posts to `https://drhardman.fi/newsletter/subscribe.php`, also from the wickstro.github.io
    sandbox, which can't run PHP.
 2. **`newsletter/*.php`** on drhardman.fi keeps the list in
-   `/var/www/production/drhardman-newsletter/subscribers.csv`. That folder is outside the web
-   root, so deploys (`rsync --delete`) never touch it and nobody can download it.
+   `/home/lotta/drhardman-newsletter/subscribers.csv` (or `/var/www/production/drhardman-newsletter/`
+   if that folder exists). It is outside the web root, so deploys (`rsync --delete`) never
+   touch it and nobody can download it.
    - `subscribe.php`: adds the address (or turns a cancelled one back on)
    - `unsubscribe.php`: the link at the end of every newsletter (asks before removing)
    - `export.php?key=…`: current subscribers as CSV, for the Google Sheet
@@ -18,17 +19,21 @@ This folder is not part of the website (excluded in `_config.yml`).
 
 ## One-time setup on the server
 
+Apache runs as `www-data`, and `lotta` has no sudo on pilvi.jco.fi, so the folder is in the
+home folder and opened up just enough for Apache:
+
 ```sh
 ssh lotta@pilvi.jco.fi
-ps -o user= -C apache2 | sort -u          # the user PHP runs as, usually www-data
-mkdir /var/www/production/drhardman-newsletter
-cd /var/www/production/drhardman-newsletter
+chmod o+x ~                                # Apache may pass through the home folder (not list it)
+mkdir ~/drhardman-newsletter && cd ~/drhardman-newsletter
 echo "<?php return ['export_key' => '$(openssl rand -hex 24)'];" > config.php
-sudo chgrp www-data . config.php           # Apache must be able to write the folder
-chmod 2770 .
-chmod 640 config.php
+chmod 733 .                                # Apache can write the list, others can't list the folder
+chmod 644 config.php                       # Apache can read the key
 cat config.php                             # the export key, needed in the Google Sheet
 ```
+
+Tidier, if a server admin can do it as root: make the folder in /var/www/production/ instead,
+`chgrp www-data` on it and config.php, `chmod 2770` the folder and `chmod 640` config.php.
 
 Then deploy the site as usual (README.md in the repo root). Test: sign up on drhardman.fi
 with your own address. You should come back to the same page with a thank-you message, and

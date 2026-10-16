@@ -2,10 +2,10 @@
 // Shared helpers for the newsletter scripts (subscribe.php, unsubscribe.php, export.php).
 //
 // The list and the settings live OUTSIDE the web root, because every deploy runs
-// rsync --delete and would wipe anything inside it. Default folder: drhardman-newsletter/
-// next to the site folder (/var/www/production/drhardman-newsletter/), or the folder in the
-// NEWSLETTER_DATA_DIR environment variable (used for local testing). Apache must be able to
-// write there. The folder holds:
+// rsync --delete and would wipe anything inside it. Folder: drhardman-newsletter/ next to the
+// site folder (/var/www/production/drhardman-newsletter/) if it exists, otherwise
+// /home/lotta/drhardman-newsletter/, or the folder in the NEWSLETTER_DATA_DIR environment
+// variable (used for local testing). Apache must be able to write there. The folder holds:
 //   subscribers.csv  the list (created on the first signup)
 //   config.php       <?php return ['export_key' => 'long random string'];
 
@@ -27,8 +27,12 @@ const NL_COLUMNS = ['email', 'lang', 'status', 'token', 'subscribed', 'updated']
 
 function nl_data_dir(): string
 {
-    $dir = getenv('NEWSLETTER_DATA_DIR') ?: dirname(__DIR__, 2) . '/drhardman-newsletter';
-    return rtrim($dir, '/');
+    if ($dir = getenv('NEWSLETTER_DATA_DIR')) {
+        return rtrim($dir, '/');
+    }
+    // Next to the site folder if it could be made there, otherwise in the owner's home folder
+    $nextToSite = dirname(__DIR__, 2) . '/drhardman-newsletter';
+    return is_dir($nextToSite) ? $nextToSite : '/home/lotta/drhardman-newsletter';
 }
 
 function nl_config(): array
