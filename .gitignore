@@ -7,3 +7,6 @@ vendor
 .bundle/
 vendor/
 _site_prod
+
+# clasp link to the newsletter Google Sheet script (script ID, kept out of the public repo)
+newsletter-tools/.clasp.json

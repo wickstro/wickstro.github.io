@@ -54,10 +54,32 @@ with `newsletter subscribe:`. They usually mean the folder isn't writable for Ap
    `https://drhardman.fi/newsletter/export.php?key=<the key from config.php>`.
    The first time, Google asks you to allow the script to send email and fetch the list.
 
+## Uploading the templates from this folder (clasp)
+
+Instead of pasting files into Apps Script, this folder is linked to the sheet's script with
+Google's `clasp` tool, so the files here are uploaded directly. They are the master copies:
+an upload replaces Code.gs and both templates in Apps Script, so make changes here, not in
+the Apps Script editor.
+
+```sh
+cd ~/Development/wickstro.github.io/newsletter-tools
+~/.local/bin/clasp push        # upload Code.gs, the templates and appsscript.json
+```
+
+Then reload the Apps Script editor or the sheet and send a test.
+
+One-time setup (done 2026-10-16 on the Arch machine):
+`npm i -g --prefix ~/.local @google/clasp`, Apps Script API switched on at
+https://script.google.com/home/usersettings, `~/.local/bin/clasp login` (login saved in
+`~/.clasprc.json`, never in the project). The link to the script is in `.clasp.json`, which is
+not in git. On another computer, run `clasp clone <Script ID>` in an empty folder and copy
+its `.clasp.json` here (Script ID: Apps Script → Project Settings).
+
 ## Each newsletter
 
-1. Edit the two templates in the Apps Script editor. The `<title>` is the subject line. Copy
-   a product row for each product. Keep the unsubscribe link at the bottom.
+1. Edit the two templates in this folder (or tell Claude which products are available, the
+   price changes and the news). The `<title>` is the subject line. Copy a product row for each
+   product. Keep the unsubscribe link at the bottom. Upload with `~/.local/bin/clasp push`.
 2. **Newsletter → Start a new round** (clears the Sent column from the last newsletter).
 3. **1. Fetch subscribers** gets the current list from drhardman.fi.
 4. **2. Send test to me** sends both language versions to you. Check them on phone and computer.
