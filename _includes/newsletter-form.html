@@ -23,7 +23,7 @@
     <button class="newsletter-form__button" type="submit">Håll mig uppdaterad</button>
 {% endif %}
     <input type="hidden" name="back" value="{{ page.url }}">
-    <div class="newsletter-form__trap" aria-hidden="true">
+    <div class="newsletter-form__trap" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
       <label for="newsletter-website">Website</label>
       <input id="newsletter-website" type="text" name="website" tabindex="-1" autocomplete="off">
     </div>
