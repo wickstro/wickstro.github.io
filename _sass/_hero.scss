@@ -361,7 +361,8 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
 
-  body#braattveta::before, body#hyvatietaa::before {
+  body#braattveta::before, body#hyvatietaa::before,
+  body#dataskydd::before, body#tietosuoja::before {
     background-image: $top-overlay, url('../img/bgs/soffa.jpg');
    
      @media screen and (max-width: $mobile) {
