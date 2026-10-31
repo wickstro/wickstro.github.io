@@ -209,6 +209,12 @@ background-color: $orange;
 .flip-card-front.eighty1, .card.eighty1 {
 background-color: $blue;
 }
+.flip-card-front.ninty2 {
+background-color: $green;
+&:hover {
+  background-color: rgba(0, 161, 75, 0.8);
+}
+}
 .flip-card-front.ninty3 {
 background-color: $cherry;
 &:hover {
