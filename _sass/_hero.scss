@@ -356,8 +356,28 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }  
   }
 
-  // Desktop: slogan top left, away from the wasp on the right
+  // Desktop: slogan top right, beside the rose; the photo is light, so it is darkened a little
   body#page-93 .slogan {
+    margin-left: auto;
+    align-self: flex-start;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
+    @media (max-width: $mobile) {
+      margin-left: 0;
+      align-self: auto;
+    }
+  }
+
+  body#page-93::before {
+    background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../img/bgs/rose-vase.jpg');
+    background-position: 30% center;
+     @media screen and (max-width: $mobile) {
+      background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../img/bgs/vertical_rose-vase.jpg');
+      background-position: center;
+    }
+  }
+
+  // Desktop: slogan top left, on the blurred background beside the mint
+  body#page-92 .slogan {
     margin-right: auto;
     align-self: flex-start;
     @media (max-width: $mobile) {
@@ -366,11 +386,11 @@ $top-overlay: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 50%, rgba(
     }
   }
 
-  body#page-93::before {
-    background-image: url('../img/bgs/wasp-drop.jpg');
-    background-position: center top;
+  body#page-92::before {
+    background-image: url('../img/bgs/mint-leaves.jpg');
+    background-position: center;
      @media screen and (max-width: $mobile) {
-      background-image: url('../img/bgs/vertical_wasp-drop.jpg');
+      background-image: url('../img/bgs/vertical_mint-leaves.jpg');
     }
   }
 
